@@ -1,0 +1,16 @@
+{% extends "articles/detail.html" %}
+{% load common subscribes i18n %}
+{% block title %}{% title %}{% trans "Подписка" %}{% endtitle %}{% endblock %}
+{% block page_header %}
+    <h1 class="list_page_header">
+        {% trans "Подписка" %}
+    </h1>
+{% endblock %}
+{% block page_content %}
+    <div class="detail_page-content">
+        {% include "includes/messages.html" %}
+        {% if not messages %}
+            <p>Добавьте вашу подписку: {% show_subscribe_form %}</p>
+        {% endif %}
+    </div>
+{% endblock %}

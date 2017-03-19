@@ -1,0 +1,946 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-04-21 11:25+0300\n"
+"PO-Revision-Date: 2012-07-02 07:49\n"
+"Last-Translator:   <rim.valiulin@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"X-Translated-Using: django-rosetta 0.6.8\n"
+
+#: articles/admin.py:19
+msgid "Разблокировать выбранные статьи"
+msgstr "Seçilen yazıları aç"
+
+#: articles/admin.py:24
+#, fuzzy
+#| msgid "Разблокировать выбранные статьи"
+msgid "Aктивировать выбранные статьи"
+msgstr "Seçilen yazıları aç"
+
+#: articles/admin.py:29
+#, fuzzy
+#| msgid "Разблокировать выбранные статьи"
+msgid "Деактивировать выбранные статьи"
+msgstr "Seçilen yazıları aç"
+
+#: articles/admin.py:92 articles/models.py:89
+msgid "Свободен"
+msgstr "Açık"
+
+#: articles/apps.py:13
+#, fuzzy
+#| msgid "Статья"
+msgid "Статьи"
+msgstr "Makale"
+
+#: articles/filters.py:9 articles/models.py:40 banners/models.py:32
+#: news/models.py:22 templates/menu/templatetags/footer.html.py:3
+msgid "Категории"
+msgstr "Kategoriler"
+
+#: articles/filters.py:22 articles/filters.py:36 articles/models.py:59
+msgid "Теги"
+msgstr "Tegler"
+
+#: articles/filters.py:41
+msgid "Турция"
+msgstr "Turkiye"
+
+#: articles/filters.py:42
+msgid "Россия"
+msgstr "Rusya"
+
+#: articles/filters.py:56 articles/models.py:84
+msgid "Опубликовал"
+msgstr "Yayınlayan"
+
+#: articles/filters.py:71 articles/models.py:90 articles/models.py:107
+#: blogs/models.py:19
+msgid "Автор"
+msgstr "Yazar"
+
+#: articles/filters.py:86
+msgid "Редактирование"
+msgstr "Düzenleme"
+
+#: articles/filters.py:90
+msgid "Свободные статьи"
+msgstr "Açık makaleler"
+
+#: articles/filters.py:90
+msgid "Заблокированные статьи"
+msgstr "Kilitli makaleler"
+
+#: articles/filters.py:90
+msgid "Мои статьи"
+msgstr "Benim makaleler"
+
+#: articles/models.py:21 articles/models.py:45 banners/models.py:15
+#: banners/models.py:37
+msgid "Название"
+msgstr "İsim"
+
+#: articles/models.py:23 articles/models.py:47 articles/models.py:96
+#: banners/models.py:20 banners/models.py:41 banners/models.py:63
+msgid "Сортировка"
+msgstr "Sıralama"
+
+#: articles/models.py:24 articles/models.py:48 articles/models.py:73
+#: banners/models.py:21 banners/models.py:42 banners/models.py:64
+#: photogallery/models.py:18 subscribes/models.py:21
+msgid "Активность"
+msgstr "Aktif"
+
+#: articles/models.py:25
+msgid "Показывать в меню"
+msgstr "Menüde göster"
+
+#: articles/models.py:26 articles/models.py:49 articles/models.py:98
+#: banners/models.py:22 banners/models.py:43 banners/models.py:73
+#: photogallery/models.py:19 polls/models.py:19 subscribes/models.py:24
+msgid "По умолчанию текущий сайт"
+msgstr "Ana menüyü göster"
+
+#: articles/models.py:39 articles/models.py:74 banners/models.py:31
+#: banners/models.py:58 banners/models.py:59 news/models.py:21
+msgid "Категория"
+msgstr "Haber kategorileri"
+
+#: articles/models.py:49 articles/models.py:98 banners/models.py:22
+#: banners/models.py:43 photogallery/models.py:19 subscribes/models.py:23
+msgid "Сайт"
+msgstr "Site"
+
+#: articles/models.py:58
+msgid "Тег"
+msgstr "Teg"
+
+#: articles/models.py:71
+msgid "Заголовок"
+msgstr "Başlık"
+
+#: articles/models.py:72
+msgid "Автоматически генерируется из заголовка (лат.буквы и -)"
+msgstr "Otomatik olarak başlıktan oluşturuluyor (a-z _)"
+
+#: articles/models.py:75 news/models.py:38
+msgid "Новость"
+msgstr "Haber"
+
+#: articles/models.py:76
+msgid "Подпись"
+msgstr "Mail haber abone"
+
+#: articles/models.py:76
+msgid "Например: Явуз Билиджи, Джихан"
+msgstr "Ör: Faruk Akkan, Moskova, Cihan"
+
+#: articles/models.py:77 photogallery/models.py:15 registration/models.py:13
+msgid "Фотография"
+msgstr "Fotoğraf"
+
+#: articles/models.py:79 videogallery/models.py:16 videogallery/models.py:17
+msgid "Видео"
+msgstr "Video"
+
+#: articles/models.py:80
+msgid "Тэги"
+msgstr "Tegler"
+
+#: articles/models.py:81
+msgid "Дата публикации Y-d-m"
+msgstr "Yayınlandığı tarih Y-a-g"
+
+#: articles/models.py:82 polls/models.py:18
+msgid "Дата публикации"
+msgstr "Yayınlandığ tarih"
+
+#: articles/models.py:83
+msgid "Дата написания"
+msgstr "Yazıldığı tarih"
+
+#: articles/models.py:84
+msgid "По умолчанию текущий пользователь"
+msgstr "Varsayılan mevcut kullanıcı"
+
+#: articles/models.py:85
+msgid "Дата создания статьи"
+msgstr "Makalenin oluşturulduğu tarih"
+
+#: articles/models.py:86
+msgid "Cоздатель"
+msgstr "Oluşturan"
+
+#: articles/models.py:87
+msgid "Дата редактирования статьи"
+msgstr "Makalenin düzenlendiği tarih"
+
+#: articles/models.py:88
+msgid "Редактор"
+msgstr "Editör"
+
+#: articles/models.py:91
+msgid "Показывать для SEO полный путь"
+msgstr "Makale yolu SEO için göster"
+
+#: articles/models.py:92 headlines/apps.py:13 headlines/models.py:17
+#: headlines/models.py:18
+msgid "Маншет"
+msgstr "Manşet"
+
+#: articles/models.py:93
+#, fuzzy
+#| msgid "Материалы по теме"
+msgid "Блок по теме"
+msgstr "İligili haberler"
+
+#: articles/models.py:94
+msgid "Версия"
+msgstr "Versiyon"
+
+#: articles/models.py:95
+msgid "Просмотры"
+msgstr "Tıklama"
+
+#: articles/models.py:97 templates/articles/detail.html.py:51
+msgid "Материалы по теме"
+msgstr "İligili haberler"
+
+#: articles/models.py:132
+msgid "Статья"
+msgstr "Makale"
+
+#: articles/models.py:133 articles/views.py:47
+msgid "Все статьи"
+msgstr "Makalelerin tümü"
+
+#: banners/apps.py:13 banners/models.py:95
+msgid "Баннеры"
+msgstr "Bannerler"
+
+#: banners/models.py:17
+msgid "Ширина колонки (px)"
+msgstr "Kolonun genişliği (px)"
+
+#: banners/models.py:18
+msgid "Высота баннера"
+msgstr "Bannerin yüksekliği"
+
+#: banners/models.py:19
+msgid "Главная категория"
+msgstr "Ana Kategori"
+
+#: banners/models.py:39
+msgid "Cайт клиента"
+msgstr "Müşterinin web-sitesi"
+
+#: banners/models.py:40 templates/subscribes/form.html.py:5
+msgid "Е-маил"
+msgstr "E-mail"
+
+msgid "Фильтр по новости"
+msgstr "Haber kategori"
+
+#: banners/models.py:52 banners/models.py:60
+msgid "Клиент"
+msgstr "Müşteri"
+
+#: banners/models.py:53
+msgid "Клиенты"
+msgstr "Müşteriler"
+
+#: banners/models.py:61
+msgid "URL клика"
+msgstr "Tıklanınca gidilecek web-site"
+
+#: banners/models.py:61
+msgid "По умолчанию указанный у клиента или встроенный в флеш"
+msgstr "Müşterinin belirttiği yada FLASH içinde olan link"
+
+#: banners/models.py:62
+msgid "Дата создания"
+msgstr "Oluşturulduğu tarih"
+
+#: banners/models.py:63
+msgid "По умолчанию последний в этой категории"
+msgstr "Varsayılan kanegorinin en sonuncusu"
+
+#: banners/models.py:65
+msgid "В показе"
+msgstr "Gösterimde"
+
+#: banners/models.py:66 banners/models.py:85
+msgid "Кол-во показов"
+msgstr "Gösterildiği defa"
+
+#: banners/models.py:67
+msgid "Максимальное кол-во показов"
+msgstr "En fazla gösterilmesi gereken defa"
+
+#: banners/models.py:67
+msgid "По умолчанию неограниченное кол-во"
+msgstr "Varsayılan sınırsız gösterim"
+
+#: banners/models.py:68 banners/models.py:90
+msgid "Клики"
+msgstr "Tıklamalar"
+
+#: banners/models.py:69
+msgid "Файл"
+msgstr "Dosya"
+
+#: banners/models.py:69
+msgid "c расширениями gif, jpg, png, swf..."
+msgstr "gif, jpg, png, swf... uzantılı"
+
+#: banners/models.py:70
+msgid "Ширина"
+msgstr "Genişlik"
+
+#: banners/models.py:71
+msgid "Высота"
+msgstr "Yükseklik"
+
+#: banners/models.py:72
+msgid "Код баннера"
+msgstr "Banner kodu"
+
+#: banners/models.py:72
+msgid ""
+"Пользовательский код баннера. Используйте теги: {{ file }}, {{ width}}, "
+"{{ height }}."
+msgstr ""
+"Kullanıcının banner kodu. Şu tegleri kullanın: {{ file }}, {{ width}}, "
+"{{ height }}."
+
+#: banners/models.py:73
+msgid "Сайт показа"
+msgstr "Gösterilen site"
+
+#: banners/models.py:94
+msgid "Баннер"
+msgstr "Banner"
+
+#: blogs/apps.py:13 blogs/models.py:34
+msgid "Блоги"
+msgstr "Bloglar"
+
+#: blogs/models.py:20 templates/blogs/authors.html.py:3
+#: templates/blogs/authors.html:6 templates/includes/footer_menu.html.py:30
+msgid "Авторы"
+msgstr "Yazar"
+
+#: blogs/models.py:33
+msgid "Блог"
+msgstr "Blog"
+
+#: common/apps.py:13
+msgid "Общий"
+msgstr "Genel"
+
+#: common/management/commands/fetchweather.py:25
+#: templates/common/templatetags/weather.html:7
+msgid "Москва"
+msgstr "Moskova"
+
+#: common/management/commands/fetchweather.py:26
+#: templates/common/templatetags/weather.html:8
+msgid "Cтамбул"
+msgstr "İstanbul"
+
+#: common/management/commands/fetchweather.py:27
+msgid "С.Петербург"
+msgstr "St.Petersburg"
+
+#: common/templatetags/sidebar.py:86
+msgid "Самое читаемое"
+msgstr "En çok okunan"
+
+#: djangoapp/admin.py:9
+msgid "МК-Киев"
+msgstr "MK-Turkey"
+
+#: djangoapp/settings.py:74
+msgid "Russian"
+msgstr "Rusça"
+
+#: djangoapp/settings.py:75
+msgid "Turkish"
+msgstr "Turkçe"
+
+#: informers/apps.py:10
+msgid "Информеры"
+msgstr "İnformerler"
+
+#: menu/apps.py:10
+msgid "Меню"
+msgstr "Menü"
+
+#: news/apps.py:13 news/models.py:39
+msgid "Новости"
+msgstr "Haberler"
+
+#: news/templatetags/news.py:14 news/views.py:16
+msgid "Все новости"
+msgstr "Tüm haberler"
+
+#: pagedown/apps.py:10
+msgid "PageDown"
+msgstr "PageDown"
+
+#: photogallery/admin.py:15 photogallery/admin.py:16 photogallery/models.py:17
+msgid "Галерея рисунков"
+msgstr "Foto Galeri"
+
+#: photogallery/admin.py:25 videogallery/admin.py:16
+msgid "Дополнительно"
+msgstr "Oluşturan"
+
+#: photogallery/apps.py:13 photogallery/models.py:34 photogallery/models.py:35
+#: photogallery/views.py:26 templates/includes/footer_menu.html.py:7
+#: templates/menu/templatetags/context.html:4
+#: templates/photogallery/templatetags/photogallery.html:5
+msgid "Фотогалерея"
+msgstr "Foto Galeri"
+
+#: photogallery/models.py:16
+msgid "Описание"
+msgstr "Açıklama"
+
+#: polls/admin.py:18
+msgid "Настройки"
+msgstr "Uygulamalar"
+
+#: polls/apps.py:13 polls/models.py:44 templates/polls/index.html.py:3
+#: templates/polls/templatetags/polls.html:22
+msgid "Опросы"
+msgstr "Anketler"
+
+#: polls/models.py:17
+msgid "Вопрос"
+msgstr "Soru"
+
+#: polls/models.py:32
+#, fuzzy
+#| msgid "Опубликовал"
+msgid "Опубликовано?"
+msgstr "Yayınlayan"
+
+#: polls/models.py:43 templates/polls/detail.html.py:5
+msgid "Опрос"
+msgstr "Anket"
+
+#: polls/models.py:50
+msgid "Ответ"
+msgstr "Cevap"
+
+#: polls/models.py:51
+msgid "Кол-во голосов"
+msgstr "Oylar sayısı"
+
+#: polls/models.py:64 polls/models.py:65
+msgid "Выбор"
+msgstr "Seçim"
+
+#: registration/admin.py:15
+msgid "Personal info"
+msgstr "Kişisel bilgi"
+
+#: registration/admin.py:16
+msgid "Permissions"
+msgstr "İzinler"
+
+#: registration/admin.py:17
+msgid "Important dates"
+msgstr "Önemli tarihler"
+
+#: registration/admin.py:18
+msgid "More"
+msgstr "Daha"
+
+#: registration/apps.py:10
+msgid "Регистрация"
+msgstr "Giriş"
+
+#: registration/models.py:12
+msgid "Принадлежность"
+msgstr "Aktif"
+
+#: registration/models.py:12
+msgid "Например: Москва, Sabah и т.д."
+msgstr "Örnek: İstanbul"
+
+#: registration/models.py:25
+msgid "Пользователь"
+msgstr "Kullanıcı"
+
+#: registration/models.py:26
+msgid "Пользователи"
+msgstr "Kullanıcılar"
+
+#: subscribes/apps.py:10 subscribes/models.py:33
+#: templates/subscribes/email.html:56 templates/subscribes/index.html.py:3
+#: templates/subscribes/index.html:6
+msgid "Подписка"
+msgstr "Kayıt"
+
+#: subscribes/management/commands/sendmailtosubscribers.py:33
+#: subscribes/views.py:110
+msgid "«МК-Киев». Выбор редактора"
+msgstr "Haberrus. Editör seçimi"
+
+#: subscribes/models.py:12 subscribes/views.py:48
+msgid "Этот почтовый адрес уже есть в списке рассылок"
+msgstr "Bu adres kaytılılar arasında mevcut"
+
+#: subscribes/models.py:13
+msgid "Вы не заполнили почтовый адрес"
+msgstr "E-posta adresi doldurdamaniz gerek"
+
+#: subscribes/models.py:14
+msgid "Невалидный почтовый адрес"
+msgstr "Geçersiz e-posta adresi"
+
+#: subscribes/models.py:20
+msgid "Email"
+msgstr "E-posta"
+
+#: subscribes/models.py:22
+msgid "Дата подписки"
+msgstr "Kayıt olduğu tarih"
+
+#: subscribes/models.py:34
+msgid "Подписки"
+msgstr "Abonelikler"
+
+#: subscribes/views.py:50
+msgid "Вы успешно подписались на рассылку"
+msgstr "Başarılı şekilde kayıt oldunuz"
+
+#: subscribes/views.py:57
+msgid "Ваша подписка заблокирована"
+msgstr "Aboneliğiniz kilitli"
+
+#: subscribes/views.py:59
+msgid "Такая подписка не существует"
+msgstr "Böyle kayıt sistemde mevcut değil"
+
+#: subscribes/views.py:61
+msgid "Вы успешно отписались от рассылки"
+msgstr "Başarılı şekilde kayıttan çıktınız"
+
+#: subscribes/views.py:63
+msgid "Мы не можем подтвердить ваш почтовый адрес"
+msgstr "E-posta'nıza mektup göderilirken hata oluştu."
+
+#: subscribes/views.py:66
+msgid "Извините, произошла ошибка"
+msgstr "Özür dileriz, bir hata oluştu"
+
+#: subscribes/views.py:79
+#, fuzzy, python-format
+msgid "Подтверждение подписки для %s"
+msgstr "Haberrus.com için onay mektubu"
+
+#: subscribes/views.py:81
+msgid "Скопируйте ссылку в браузер."
+msgstr "Linki tarayıcıya koypalayın"
+
+#: subscribes/views.py:82
+msgid "Подписаться на рассылку."
+msgstr "E-posta'ya bedava abone olmak için kayıt olun"
+
+#: subscribes/views.py:89
+#, fuzzy
+#| msgid ""
+#| "На ваш почтовый адрес выслано подтверждение подписки. Проверьте ваш "
+#| "почтовый ящик"
+msgid ""
+"На ваш почтовый адрес выслано подтверждение подписки.<br>Проверьте ваш "
+"почтовый ящик"
+msgstr "E-posta'nıza onay mektubu gönderildi. E-postanızı çek edin."
+
+#: subscribes/views.py:91
+msgid "Ошибка в отправке подтверждения подписки на ваш почтовый адрес"
+msgstr "E-posta'nıza mektup göderilirken hata oluştu."
+
+#: templates/admin/date_hierarchy.html:9
+msgid "Today"
+msgstr ""
+
+#: templates/admin/index.html:20
+#, python-format
+msgid "Models in the %(name)s application"
+msgstr "%(name)s uygulaması modeller"
+
+#: templates/admin/index.html:21
+#, python-format
+msgid "%(name)s"
+msgstr "%(name)s"
+
+#: templates/admin/index.html:33
+msgid "Add"
+msgstr "Ekle"
+
+#: templates/admin/index.html:39
+msgid "Change"
+msgstr "Değiştir"
+
+#: templates/admin/index.html:49
+msgid "You don't have permission to edit anything."
+msgstr "Değiştirmek için izniniz yok"
+
+#: templates/admin/index.html:57
+msgid "Recent Actions"
+msgstr "Son eylemler"
+
+#: templates/admin/index.html:58
+msgid "My Actions"
+msgstr "Benim eylemler"
+
+#: templates/admin/index.html:66
+msgid "None available"
+msgstr "Mevcut değil"
+
+#: templates/admin/index.html:83
+msgid "Unknown content"
+msgstr "Bilinmeyen içerik"
+
+#: templates/admin/locked.html:4 templates/admin/locked.html.py:8
+msgid "Эта страница заблокирована"
+msgstr "Bu sayfa kapallı"
+
+#: templates/admin/locked.html:10
+#, python-format
+msgid ""
+"Эта страница редактируется пользователем %(editor)s. Время: %(edit_date)s"
+msgstr ""
+"Bu sayfa %(editor)s kullanıcı tarafından düzenlenir. Zaman: %(edit_date)s"
+
+#: templates/admin/tag_filter.html:2
+#, python-format
+msgid " By %(filter_title)s "
+msgstr "%(filter_title)s ile "
+
+#: templates/articles/archive.html:3 templates/articles/archive.html.py:6
+#: templates/includes/footer_menu.html:53
+msgid "Архив"
+msgstr "Arşiv"
+
+#: templates/articles/detail.html:41
+msgid "Tеги"
+msgstr "Tegler"
+
+#: templates/articles/detail.html:70
+msgid "Другие новости"
+msgstr "Diğer haberler"
+
+#: templates/articles/list.html:12
+msgid "по тегу"
+msgstr "Teg haberler"
+
+#: templates/articles/list.html:51
+msgid "Статьи не найдены"
+msgstr "Haberler bulanamadı"
+
+#: templates/base.html:51
+msgid "московское время"
+msgstr "Moskova saati"
+
+#: templates/blogs/authors.html:20
+msgid "Кол-во статей"
+msgstr "Makaleler"
+
+#: templates/blogs/authors.html:47
+msgid "Авторы не найдены"
+msgstr "Haberler bulanamadı"
+
+#: templates/blogs/detail.html:24
+msgid "Другие комментарии автора"
+msgstr "Yazarın Önceki Yorumlar"
+
+#: templates/comments/form.html:28 templates/comments/preview.html.py:43
+msgid "Post"
+msgstr "Yorum"
+
+#: templates/comments/posted.html:3 templates/comments/posted.html.py:9
+msgid "Thanks for commenting"
+msgstr "Yorum yazdığınız için teşekkür ederiz"
+
+#: templates/comments/posted.html:8
+msgid "Thank you for your comment"
+msgstr "Yorumunuz için teşekkür ederiz"
+
+#: templates/comments/preview.html:3 templates/comments/preview.html.py:13
+msgid "Preview your comment"
+msgstr "Yorumunu öngör"
+
+#: templates/comments/preview.html:11
+msgid "Please correct the error below"
+msgid_plural "Please correct the errors below"
+msgstr[0] "Lütfen hatanızı düzeltin"
+
+#: templates/comments/preview.html:16
+msgid "and"
+msgstr "ve"
+
+#: templates/comments/preview.html:16
+msgid "Post your comment"
+msgstr "Yorumunuzu yayınlayın"
+
+#: templates/comments/preview.html:16
+msgid "or make changes"
+msgstr "yada değişiklikler yapın"
+
+#: templates/common/templatetags/namaz_times.html:3
+msgid "Расписание намаза"
+msgstr "Namaz Vakitleri"
+
+#: templates/common/templatetags/namaz_times.html:10
+msgid "Фаджр"
+msgstr "Ezan"
+
+#: templates/common/templatetags/namaz_times.html:11
+msgid "Шурук"
+msgstr "Güneş"
+
+#: templates/common/templatetags/namaz_times.html:12
+msgid "Зухр"
+msgstr "Öğle"
+
+#: templates/common/templatetags/namaz_times.html:13
+msgid "Аср"
+msgstr "İkindi"
+
+#: templates/common/templatetags/namaz_times.html:14
+msgid "Магриб"
+msgstr "Akşam"
+
+#: templates/common/templatetags/namaz_times.html:15
+msgid "Иша"
+msgstr "Yatsı"
+
+#: templates/common/templatetags/weather.html:9
+#, fuzzy
+#| msgid "С.Петербург"
+msgid "C.Петербург"
+msgstr "St.Petersburg"
+
+#: templates/common/templatetags/weather.html:15
+#, python-format
+msgid "Прогноз погоды для %(city)s"
+msgstr "%(city)s hava durumu"
+
+#: templates/includes/footer_menu.html:4
+msgid "Медиа"
+msgstr "Medya"
+
+#: templates/includes/footer_menu.html:12
+msgid "Видеогалеря"
+msgstr "Video Galeri"
+
+#: templates/includes/footer_menu.html:17
+#: templates/menu/templatetags/context.html:18
+msgid "Карикатуры"
+msgstr "Karikatürler"
+
+#: templates/includes/footer_menu.html:22
+msgid "Персоналии"
+msgstr "Kişilikler"
+
+#: templates/includes/footer_menu.html:25
+msgid "Комментарии"
+msgstr "Yorumlar"
+
+#: templates/includes/footer_menu.html:35
+msgid "Cтраницы"
+msgstr "Sayfalar"
+
+#: templates/includes/footer_menu.html:38
+msgid "О нас"
+msgstr "Hakkımızda"
+
+#: templates/includes/footer_menu.html:43
+msgid "Контакты"
+msgstr "İletişim"
+
+#: templates/includes/footer_menu.html:48 templates/subscribes/email.html:12
+msgid "Реклама"
+msgstr "Reklam"
+
+#: templates/includes/logos.html:4
+msgid "Партнеры"
+msgstr "Ortaklar"
+
+#: templates/includes/logos.html:6 templates/includes/logos.html.py:9
+#: templates/includes/logos.html:10
+msgid "Аргументы и Факты"
+msgstr "Аргументы и Факты"
+
+#: templates/includes/logos.html:7
+msgid "Логотип «Аргументы и Факты»"
+msgstr "«Аргументы и Факты» logosu"
+
+#: templates/includes/logos.html:14 templates/includes/logos.html.py:17
+msgid "Издательский дом «Московский комсомолец»"
+msgstr "«Moskovsky Komsomolets» Yayınevi"
+
+#: templates/includes/logos.html:15
+msgid "Логотип издательского дома «Московский комсомолец»"
+msgstr "«Moskovsky Komsomolets» Yayınevi logosu"
+
+#: templates/includes/logos.html:18
+msgid "Московский комсомолец"
+msgstr "Moskovsky Komsomolets"
+
+#: templates/includes/logos.html:36
+msgid "Проекты"
+msgstr "Projeler"
+
+#: templates/includes/logos.html:39
+#, fuzzy
+#| msgid "Логотип Mk-Turkey"
+msgid "Логотип Aif-Turkey"
+msgstr "Mk-Turkey logo"
+
+#: templates/includes/logos.html:47
+msgid "Новости Турции, Турция, Mk-Turkey"
+msgstr "Türkiye Haberler, Türkiye, Mk-Turkey"
+
+#: templates/includes/logos.html:48
+msgid "Логотип Mk-Turkey"
+msgstr "Mk-Turkey logo"
+
+#: templates/includes/logos.html:51
+msgid "Новости Турции"
+msgstr "Türkiye Haberler"
+
+#: templates/includes/logos.html:57
+msgid "Логотип Haberrus.Com"
+msgstr "Haberrus.Com logo"
+
+#: templates/menu/templatetags/context.html:11
+#: templates/videogallery/templatetags/videogallery.html:5
+#: videogallery/apps.py:13 videogallery/views.py:17
+msgid "Видеогалерея"
+msgstr "Video Galeri"
+
+#: templates/news/templatetags/main.html:8
+msgid "Другие новости раздела"
+msgstr "Bölümün diğer haberleri"
+
+#: templates/polls/detail.html:26
+#, fuzzy
+#| msgid "Пользователь"
+msgid "Проголосовать"
+msgstr "Kullanıcı"
+
+#: templates/polls/index.html:26
+#, fuzzy
+#| msgid "Авторы не найдены"
+msgid "Ничего не найдено :("
+msgstr "Haberler bulanamadı"
+
+#: templates/polls/results.html:5
+msgid "Результаты"
+msgstr "Sonuçlar"
+
+#: templates/polls/templatetags/polls.html:17
+msgid "Ответить"
+msgstr "Cevapla"
+
+#: templates/subscribes/email.html:56
+msgid "удалить рассылку"
+msgstr "E-posta alımını durdur "
+
+#: templates/subscribes/email.html:58 templates/subscribes/email.txt.py:26
+msgid "Редакция"
+msgstr "Editör"
+
+#: templates/subscribes/email.txt:6
+msgid "РЕКЛАМА"
+msgstr "REKLAM"
+
+#: templates/subscribes/email.txt:24
+msgid "Подписка: удалить рассылку"
+msgstr "Kayıt: E-posta alımını durdur"
+
+#: templates/subscribes/form.html:7
+msgid "Подписаться"
+msgstr "Mail haber abone"
+
+#~ msgid "Последние новости"
+#~ msgstr "Son haberler"
+
+#~ msgid "Информационное агенство «Джихан»"
+#~ msgstr "Haber Ajansı «Cihan»"
+
+#~ msgid "Логотип информационного агенства «Джихан»"
+#~ msgstr "Haber Ajansı «Cihan» logosu"
+
+#~ msgid "Джихан"
+#~ msgstr "Cihan"
+
+#~ msgid "Свободные страницы"
+#~ msgstr "Açık sayfalar"
+
+#~ msgid "Сводобные"
+#~ msgstr "Açık sayfalar"
+
+#~ msgid "Заблокированные"
+#~ msgstr "Kilitli sayfalar"
+
+#~ msgid "Собственные"
+#~ msgstr "Kendi sayfalar"
+
+#~ msgid "Имя пользователя"
+#~ msgstr "Kullanıcı adı"
+
+#~ msgid ""
+#~ "Обязательное поле. Не менее 30 символов. Маленькие буквы, цифры и символы "
+#~ "@.+-_"
+#~ msgstr ""
+#~ "Gerekli. 30 veya daha az karakter. Harfler, rakamlar ve sadece @.+-_ "
+#~ "karakterler"
+
+#~ msgid ""
+#~ "Это поле может содержать только строчные буквы, цифры и символы @.+-_"
+#~ msgstr "Burada sadece harf, rakam ve @.+-_ karakterler olabilir."
+
+#~ msgid "Пароль"
+#~ msgstr "Parola"
+
+#~ msgid ""
+#~ "Пароли храняться в зашифрованном виде, так что нет никакого способа, "
+#~ "чтобы увидеть пароль этого пользователя, но вы можете изменить пароль с "
+#~ "помощью <a href=\"password/\">этой формы</a>"
+#~ msgstr ""
+#~ "Ham şifreler saklanmaz. Bu yüzden kullanıcının parolasını görmek için "
+#~ "hiçbir yolu yoktur, ama parola <a href=\"password/\">bu formu</a> ile "
+#~ "değiştirebilirsiniz."
+
+#~ msgid "Пользователь с таким именем уже существует."
+#~ msgstr "Bu isimde kullanıcı var."
+
+#~ msgid "Введенные пароли не совпадают."
+#~ msgstr "İki parola uyuşmuyor."
+
+#~ msgid "Подтверджение пароля"
+#~ msgstr "Parola doğrulama"
+
+#~ msgid "Введите тот же пароль, что и выше, для подтвержения."
+#~ msgstr "Doğrulama için yukarıdaki aynı parolayı girin."
+
+#~ msgid "Редактировать"
+#~ msgstr "Düzenle"

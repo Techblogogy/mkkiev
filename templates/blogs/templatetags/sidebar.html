@@ -1,0 +1,25 @@
+{% load image common i18n %}{% spaceless %}
+<section class="blog_headlines">
+    <a class="blog_headlines-link" href="{% url "blogs:list" %}">
+        <h2 class="blog_headlines-header">
+            {{ category.name }} →
+        </h2>
+    </a>
+    {% for object in object_list %}
+        <article class="blog_headlines-content">
+            <header>
+                {% image object.author.image "userpics" %}
+                    <img class="blog_headlines-image" alt="{{ object.author }}" width="{{ width }}" height="{{ height }}" src="{{ src }}">
+                {% endimage %}
+                <a class="blog_headlines-author" href="{% url 'blogs:author:list' object.author.username %}">{{ object.author }}</a>
+                <time class="blog_headlines-date"> | {{ object.pub_date|date:"d N" }}</time>{% show_pageviews object.pageviews %}
+                <h3 class="blog_headlines-title"><a class="blog_headlines-title_link" href="{{ object.get_absolute_url }}">{{ object.title }}</a></h3>
+            </header>
+            <a class="blog_headlines-content_link" href="{{ object.get_absolute_url }}">
+                {{ object.content|newscut:15|endtext|safe }}
+            </a>
+        </article>
+    {% endfor %}
+</section>
+{% endspaceless %}
+

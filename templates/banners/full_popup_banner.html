@@ -1,0 +1,33 @@
+<div class="full-screen-banner" style="display:none">
+<object id="swfobj-full-1" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="100%" height="100%">
+<param name="movie" value="{{ file }}" />
+<param name="quality" value="high" />
+<param name="bgcolor" value="#ffffff" />
+<!--[if !IE]>-->
+<object type="application/x-shockwave-flash" data="{{ file }}" width="100%" height="100%" bgcolor="#ffffff" quality="high">
+<!--<![endif]-->
+<p>Please update your Flash Player</p>
+<!--[if !IE]>-->
+</object>
+<!--<![endif]-->
+</object>
+</div>
+<script src="{{ STATIC_URL }}js/jquery.cookie.js"></script>
+<script>
+swfobject.registerObject("swfobj-full-1", "9.0.0");
+$(function() {
+	//if(!$.cookie('full_screen_banner')) {
+	
+		$.cookie('full_screen_banner', '1', {expires:1});
+	
+		$(".b-full-screen-banner").css({
+			position:"fixed",
+			width:$(window).width(),
+			height:$(window).height(),
+			"z-index":9999,
+			top:0,
+			left:0
+		}).show();
+	//}
+});
+</script>

@@ -1,0 +1,32 @@
+{% extends "page.html" %}
+{% load common i18n %}
+{% block title %}{% title %}{{ poll.question_text }}{% endtitle %}{% endblock %}
+{% block page %}
+    <section class="list_page"><h1 class="list_page_header">{% trans "Опрос" %}</h1>
+        <div class="article">
+            <article class="article-item">
+                <header class="article_header">
+                    <h2 class="article_header-title">
+                        {{ poll.question_text }}
+                    </h2>
+                </header>
+            </article>
+            <div class="article-content">
+                {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+                {% if polled %}
+                    {% for choice in poll.choice_set.all %}
+                        {{ choice.choice_text }} &mdash; {{ choice.votes_percent }}%<br>
+                    {% endfor %}
+                {% else %}
+                    <form action="{% url 'polls:vote' poll.id %}" method="post">{% csrf_token %}
+                        {% for choice in poll.choice_set.all %}
+                            <p><input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}"/>
+                                <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label></p>
+                        {% endfor %}
+                        <input type="submit" value="{% trans "Проголосовать" %}"/>
+                    </form>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

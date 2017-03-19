@@ -1,0 +1,38 @@
+body {background: url("/static/images/body_bg2.png")  repeat-y scroll center top #111;}
+.wrapper-content {background-color: transparent;}
+.wrapper-header {background: url("/static/images/body_top_bg2.png") no-repeat scroll center top #FFFFFF;}
+.wrapper-footer {background: url("/static/images/body_bottom_bg2.png") no-repeat scroll center top #FFFFFF;}
+.main_content {background:url("/static/images/sidebar_dark_bg.png") repeat-y scroll right top transparent;color:#aaa}
+.top_banner {margin-bottom:0;}
+.main_header {background: #555;margin:0;padding:10px 0 5px 0;}
+.main_footer {background-color: #aaa;}
+.article-link:hover {opacity: .9;}
+.article-item_left {width:305px;float:left;background:none;margin:0 20px 20px 0;padding:0;}
+.article-item_right {width:305px;float:left;background:none;margin:0 0 20px 0;padding:0;}
+.list_page_header {background:none;color: #eee;padding-left:0;}
+.article-content {position: relative;display: block;}
+.article-content-label {
+    background: url("/static/images/transparent_bg.png") repeat scroll 0 0 transparent;
+    bottom: 0;
+    display: block;
+    height: auto;
+    left: 0;
+    padding: 5px;
+    position: absolute;
+    text-align: center;
+    width: 295px;
+    color: #fff;
+}
+.article-image_size_2_1 {max-width:100%;}
+.p10n-link, .p10n-link_inactive, .p10n-link_arrow, .p10n-link_elipsis {background-color:#666}
+.p10n-link:hover {background-color:#888}
+.p10n-link_arrow:hover {color:#fff;}
+.p10n-link_current {background-color:#aaa}
+#galleria{margin-bottom:5px; max-width: 630px; height: 390px; background: #111;}
+.black_box {background-color: #000;text-align: center;margin-bottom: 5px;}
+.yasal_uyari {border-color: #1F6BA2; color: #1F6BA2}
+.tags-title, .related-title {color: #1F6BA2}
+.detail_page-caption {color:#aaa;}
+.sidebar {background:#555;}
+.blog_headlines-content_link {color:#aaa}
+#yandexform0 .yaform__search, #yandexform0 .yaform__search td, #yandexform0 .yaform__precise-i {background:none;}

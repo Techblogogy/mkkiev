@@ -1,0 +1,24 @@
+﻿{% extends "layout.html" %}
+{% load sidebar news headlines subscribes blogs menu banners %}
+{% block title %}Новости Киева и Украины{% endblock %}
+{% block main_banner %}{% show_banner 'main' 1 %}{% endblock %}
+{% block page %}
+	{% show_headline %}
+	{% show_banner 'content' 1 %}
+	{% show_news 'life' %}
+	{% show_banner 'content' 1 %}
+	<!-- {% show_context_menu %} -->
+	{% show_banner 'content' 1 %}
+	{% show_news 'tourism' %}
+	{% show_news 'politics' %}
+	{% show_news 'culture' %}
+	{% show_news 'economics' %}
+	{% show_banner 'content' 1 %}
+	{% show_news 'russia' %}
+	{% show_news 'education' %}
+	{% show_news 'sport' %}
+    {% show_blogs %}
+    {% show_banner 'content' 1 %}
+    {% show_news 'daynews' %}
+	{% show_banner 'content' %}
+{% endblock %}

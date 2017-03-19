@@ -1,0 +1,23 @@
+{% load i18n %}
+<div class="poll">
+    <div class="poll-header">{{ poll.question_text }}</div>
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+    <div class="poll-content">
+        {% if polled %}
+            {% for choice in poll.choice_set.all %}
+                {{ choice.choice_text }} &mdash; {{ choice.votes_percent }}%<br>
+            {% endfor %}
+        {% else %}
+            <form action="{% url 'polls:vote' poll.id %}" method="post">{% csrf_token %}
+                {% for choice in poll.choice_set.all %}
+                    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+                    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
+                {% endfor %}
+                <div style="text-align: center;padding: 5px">
+                    <button class="subscribe-button" type="submit">{% trans "Ответить" %}</button>
+                </div>
+            </form>
+        {% endif %}
+    </div>
+    <div class="poll-footer"><a class="poll-link" href="{% url "polls:index" %}">{% trans "Опросы" %} →</a></div>
+</div>

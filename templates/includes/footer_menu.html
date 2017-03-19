@@ -1,0 +1,56 @@
+{% load menu common i18n %}
+{% show_footer_menu %}
+<div class="footer_menu">
+    <h4 class="footer_menu-header">{% trans "Медиа" %}</h4>
+    <ul class="footer_menu-list">
+        <li class="footer_menu-item">
+            <a href="{% url "photogallery:list" %}" class="footer_menu-link">{% trans "Фотогалерея" %}</a>
+        </li>
+    </ul>
+    <ul class="footer_menu-list">
+        <li class="footer_menu-item">
+            <a href="{% url "videogallery:list" %}" class="footer_menu-link">{% trans "Видеогалеря" %}</a>
+        </li>
+    </ul>
+    <ul class="footer_menu-list">
+        <li class="footer_menu-item">
+            <a href="{% url "news:list" %}?tag=caricature" class="footer_menu-link">{% trans "Карикатуры" %}</a>
+        </li>
+    </ul>
+</div>
+<div class="footer_menu">
+    <h4 class="footer_menu-header">{% trans "Персоналии" %}</h4>
+    <ul class="footer_menu-list">
+        <li class="footer_menu-item">
+            <a href="{% url "blogs:list" %}" class="footer_menu-link">{% trans "Комментарии" %}</a>
+        </li>
+    </ul>
+    <ul class="footer_menu-list">
+        <li class="footer_menu-item">
+            <a href="/blog/authors/" class="footer_menu-link">{% trans "Авторы" %}</a>
+        </li>
+    </ul>
+</div>
+<div class="footer_menu">
+    <h4 class="footer_menu-header">{% trans "Cтраницы" %}</h4>
+    <ul class="footer_menu-list">
+        <li class="footer_menu-item">
+            <a href="/about/" class="footer_menu-link">{% trans "О нас" %}</a>
+        </li>
+    </ul>
+    <ul class="footer_menu-list">
+        <li class="footer_menu-item">
+            <a href="/contacts/" class="footer_menu-link">{% trans "Контакты" %}</a>
+        </li>
+    </ul>
+    <ul class="footer_menu-list">
+        <li class="footer_menu-item">
+            <a href="/ads/" class="footer_menu-link">{% trans "Реклама" %}</a>
+        </li>
+    </ul>
+    <ul class="footer_menu-list">
+        <li class="footer_menu-item">
+            <a href="/archive/" class="footer_menu-link">{% trans "Архив" %}</a>
+        </li>
+    </ul>
+</div>

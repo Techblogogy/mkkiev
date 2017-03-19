@@ -1,0 +1,78 @@
+{% load image common i18n %}
+{% spaceless %}
+<div style="font:13px/20px Arial, sans-serif;">
+
+<h1 style="margin:0 0 20px 0;padding:0 0 10px 0;border-bottom:1px solid #222;font:18px/20px Arial, sans-serif;color:#1F6BA2">
+{{ subject }}
+</h1>
+
+{% if ads_list %}
+<div style="margin:0 0 20px 0;padding:0 0 10px 0;border-bottom:1px solid #222">
+    <p style="margin:20px 0 5px;font-size:13px;font-weight:bold;color:#222;text-transform:uppercase">
+        <b>{% trans "Реклама" %}</b>
+    </p>
+    {% for object in ads_list %}
+    <p>
+        <a style="color:#1F6BA2" href="{{ domain }}{{ object.get_absolute_url }}" target="_blank">
+            <b>{{ object.title }}</b>
+        </a>
+        <br>
+        {{ object.content }}
+    </p>
+    <br>
+    {% endfor %}
+</div>
+<p></p>
+<p></p>
+{% endif %}
+
+{% for object in article_list %}
+<table width="100%">
+    <tbody>
+    <tr>
+        <td valign="top">
+            <h1 style="margin:0;padding:0;font:18px/20px Arial, sans-serif;color:#1F6BA2">
+                <a style="color:#1F6BA2;text-decoration:none" href="{{ domain }}{{ object.get_absolute_url }}" target="_blank">
+                   {{ object.title }}
+                </a>
+            </h1>
+            <div style="font:13px/20px Arial, sans-serif;margin:2px 0 10px 0">{{ object.content|newscut:20|endtext|safe }}</div>
+        </td>
+        <td width="85" valign="top">
+            <a href="{{ domain }}{{ object.get_absolute_url }}" target="_blank">
+                {% image object.image "subscribes" %}
+                    <img style="margin:4px 5px 5px 0;border:none" alt="{{ object.title }}" width="{{ width }}" height="{{ height }}" src="{{ src }}">
+                {% endimage %}
+            </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<p style=""></p>
+<p></p>
+{% endfor %}
+
+<div style="margin:20px 0 0 0;padding:7px 0 0 0;border-top:1px solid #ccc;font-size:95%;color:#222">
+    {% trans "Подписка" %}: <a style="color:#222" href="{% templatetag openvariable %}unsubscribe_link{% templatetag closevariable %}" target="_blank">{% trans 'удалить рассылку' %}</a>
+    <br>
+    {% trans "Редакция" %}: <a style="color:#222" href="mailto:info@{{ pretty_domain }}" target="_blank">info@{{ pretty_domain }}</a>.
+    {#%{% trans 'Реклама в рассылке' %}: <a style="color:#222" href="mailto:sales@mkkiev.in.ua" target="_blank">sales@{{ pretty_domain }}</a>.%#}
+    {% comment %}
+    {% trans 'Присоединяйтесь к «МК-Киев» в социальных сетях:' %}
+    <a href="http://www.facebook.com/Vedomosti" style="color:#999" target="_blank">Facebook</a>,
+    <a href="http://twitter.com/vedomosti" style="color:#999" target="_blank">Twitter</a>,
+    <a href="http://vkontakte.ru/vedomosti" style="color:#999" target="_blank">ВКонтакте</a>,
+    <a href="https://foursquare.com/vedomosti/lists/created" style="color:#999" target="_blank">Foursquare</a>,
+    <a href="http://www.linkedin.com/groups/Vedomosti-Readers-group-3962481" style="color:#999" target="_blank">LinkedIn</a>,
+    <a href="http://gplus.to/Vedomosti" style="color:#999" target="_blank">Google +</a>,
+    <a href="http://www.viadeo.com/ru/profile/vedomosti" style="color:#999" target="_blank">Viadeo</a>
+    <br>
+    {% endcomment %}
+    <br>
+    Copyright 2003 — {% now "Y" %} © {{ pretty_domain }}
+</div>
+<p></p>
+<p></p>
+
+</div>
+{% endspaceless %}

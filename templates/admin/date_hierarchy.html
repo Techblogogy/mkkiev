@@ -1,0 +1,12 @@
+{% load i18n %}
+{% if show %}
+<div class="xfull">
+<ul class="toplinks">
+{% if back %}<li class="date-back"><a href="{{ back.link }}">&lsaquo; {{ back.title }}</a></li>{% endif %}
+{% for choice in choices %}
+<li> {% if choice.link %}<a href="{{ choice.link }}">{% endif %}{{ choice.title }}{% if choice.link %}</a>{% endif %}</li>
+{% endfor %}
+<li><a href="?pub_date__day={% now "j" %}&pub_date__month={% now "n" %}&pub_date__year={% now "Y" %}">{% trans "Today" %}</a></li>
+</ul><br class="clear" />
+</div>
+{% endif %}

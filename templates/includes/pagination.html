@@ -1,0 +1,26 @@
+{% load i18n common %}
+{% if is_paginated and paginator.num_pages > 1 %}
+{% spaceless %}
+    <div class="p10n">
+        {% if page_obj.has_previous %}
+            <a class="p10n-link_arrow" href="{% paginationquery %}page={{ page_obj.previous_page_number }}">←</a>
+        {% else %}
+            <span class="p10n-link_inactive">←</span>
+        {% endif %}
+        {% for number in paginator.page_range|pagination:page_obj.number %}
+            {% if page_obj.number == number %}
+                <span class="p10n-link_current">{{ number }}</span>
+            {% elif number %}
+                <a class="p10n-link" href="{% paginationquery %}page={{ number }}">{{ number }}</a>
+            {% else %}
+                <span class="p10n-link_elipsis">…</span>
+            {% endif %}
+        {% endfor %}
+        {% if page_obj.has_next %}
+            <a class="p10n-link_arrow" href="{% paginationquery %}page={{ page_obj.next_page_number }}">→</a>
+        {% else %}
+            <span class="p10n-link_inactive">→</span>
+        {% endif %}
+    </div>
+{% endspaceless %}
+{% endif %}

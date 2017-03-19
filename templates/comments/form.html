@@ -1,0 +1,32 @@
+{% load comments i18n %}
+<form id="comments_form" action="{% comment_form_target %}" method="post">{% csrf_token %}
+	<div><input type="hidden" name="next" value="{{ request.path }}" /></div>
+	{% if next %}<div><input type="hidden" name="next" value="{{ next }}" /></div>{% endif %}
+	{% for field in form %}
+		{% if field.is_hidden %}
+			<div>{{ field }}</div>
+		{% else %}
+			{% if field.errors %}
+				<div>
+					<div class="comments-lt"></div>
+					<div class="comments-rt">{{ field.errors }}</div>
+				</div>
+			{% endif %}
+			<div {% if field.errors %} class="error"{% endif %}{% ifequal field.name "honeypot" %} style="display:none;"{% endifequal %}>
+				<div class="comments-lt">{{ field.label_tag }}</div>
+				<div class="comments-rt">{{ field }}</div>
+			</div>
+		{% endif %}
+	{% endfor %}
+	<div>
+		<div class="comments-lt"></div>
+		<div class="comments-rt">{% include "comments/recaptcha.inc.html" %}</div>
+	</div>
+	<div class="submit">
+		<div class="comments-lt"></div>
+		<div class="comments-rt">
+			<input type="submit" name="post" class="submit-post" value="{% trans "Post" %}" />
+			{#<input type="submit" name="preview" class="submit-preview" value="{% trans "Preview" %}" />#}
+		</div>
+	</div>
+</form>

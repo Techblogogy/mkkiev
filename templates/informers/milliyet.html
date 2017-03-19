@@ -1,0 +1,113 @@
+{% extends "informers/base.html" %}
+{% load image %}
+{% block style %}
+<style>
+.informer{{v}} {
+    background: #e5e5e5 !important;
+    margin: 0 0 20px 0 !important;
+}
+.informer{{v}}-header {
+    text-align: left !important;
+    padding: 10px 0 0 0 !important;
+}
+.informer{{v}}-logo {
+    width: 200px !important;
+    height: auto !important;
+    padding: 0 0 0 2px !important;
+    margin: 0 !important;
+    float: none !important;
+}
+.informer{{v}}-link {
+    color: #222 !important;
+    text-decoration: none !important;
+    font: bold 12px/16px Arial, Helvetica, sans-serif !important;
+    word-wrap: break-word !important;
+    display: block !important;
+    padding: 5px !important;
+    margin: 0 5px !important;
+}
+.informer{{v}}-link:before {content:" ";display:table;}
+.informer{{v}}-link:after {content:" ";display:table;clear:both;}
+.informer{{v}}-link {*zoom:1;}
+.informer{{v}}-link:hover {
+    color: #1f4e94 !important;
+    background-color: #fff;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 2px 2px 3px 0px #aaa;
+    box-shadow: 2px 2px 3px 0px #aaa;
+}
+.informer{{v}}-content {
+    border-collapse: collapse !important;
+    border-spacing: 0 !important;
+    margin: 5px 0 !important;
+}
+.informer{{v}}-image {
+    padding: 0 !important;
+    margin: 0 5px 0 0 !important;
+    float: left !important;
+    border: 2px #a4a4a4 solid;
+}
+.informer{{v}}-footer {
+    text-align: right !important;
+    padding: 5px !important;
+    background-color: #3d4047 !important;
+}
+.informer{{v}}-footer-link {
+    background-color: #006DCC!important;
+    background-image: linear-gradient(to bottom, #0088CC, #0044CC)!important;
+    background-repeat: repeat-x!important;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25)!important;
+    color: #fff!important;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25)!important;
+    border-radius: 3px 3px 3px 3px!important;
+    font-size: 11.9px!important;
+    padding: 2px 10px!important;
+    -moz-border-bottom-colors: none!important;
+    -moz-border-left-colors: none!important;
+    -moz-border-right-colors: none!important;
+    -moz-border-top-colors: none!important;
+    border-image: none!important;
+    border-style: solid!important;
+    border-width: 1px!important;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05)!important;
+    cursor: pointer!important;
+    display: inline-block!important;
+    line-height: 20px!important;
+    margin-bottom: 0!important;
+    text-align: center!important;
+    vertical-align: middle!important;
+    text-decoration: none!important;
+    outline: medium none!important;
+}
+.informer{{v}}-footer-link:hover {
+    background-color: #0044CC!important;
+    color: #fff!important;
+    background-position: 0 -15px!important;
+    text-decoration: none!important;
+    transition: background-position 0.1s linear 0s!important;
+}
+.informer{{v}}-footer-arrow {
+    font-weight: bold;
+    font-size: 14px;
+}
+</style>
+{% endblock %}
+{% block content %}
+    <div class="informer{{v}}-content">
+        {% for object in object_list %}
+            <a class="informer{{v}}-link" href="{{ url }}{{ object.get_absolute_url }}" target="_blank">
+                {% image object.image "informer" %}
+                    <img class="informer{{v}}-image" border="0" alt="{{ object.title }}" width="{{ width }}" height="{{ height }}" src="{{ src }}">
+                {% endimage %}
+                {{ object.title }}
+            </a>
+        {% endfor %}
+    </div>
+{% endblock %}
+{% block footer %}
+    <div class="informer{{v}}-footer">
+        <a class="informer{{v}}-footer-link" href="{{ url }}{% url "informer_help" %}">{{ footer_title }} <i class="informer{{v}}-footer-arrow">→</i></a>
+    </div>
+{% endblock %}

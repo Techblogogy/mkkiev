@@ -1,0 +1,13 @@
+{% extends "page.html" %}
+{% load common %}
+{% block title %}{% title %}Не правильно введена каптча (400 ошибка){% endtitle %}{% endblock %}
+{% block page_header %}
+    <h1 class="list_page_header">
+        Не правильно введена каптча (400 ошибка)
+    </h1>
+{% endblock %}
+{% block page_content %}
+    <div class="detail_page-content">
+        <p>Вернитесь назад и снова попробуйте ввести каптчу.</p>
+    </div>
+{% endblock %}

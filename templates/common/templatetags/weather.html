@@ -1,0 +1,23 @@
+{% load i18n %}
+<table class="weather">
+	<tr>
+		{% for object in object_list %}
+			<th>{% trans  object.city %}</th>
+		{% empty %}
+			<th>{% trans "Киев" %}</th>
+			<th>{% trans "Москва" %}</th>
+			<th>{% trans "C.Петербург" %}</th>
+		{% endfor %}
+	</tr>
+	<tr>
+    {% for object in object_list %}
+        <td>
+            <img alt="{% blocktrans with city=object.city%}Прогноз погоды для {{ city }}{% endblocktrans %}" height="30" src="{{ object.icon_url }}">&nbsp;<span>{{ object.temp_c }}&#8451;</span>
+        </td>
+    {% empty %}
+        <td><img src="http://banners.wunderground.com/weathersticker/smalltemp_metric/language/russian/global/stations/33345.gif"></td>
+        <td><img src="http://banners.wunderground.com/weathersticker/smalltemp_metric/language/russian/global/stations/27612.gif"></td>
+        <td><img src="http://banners.wunderground.com/weathersticker/smalltemp_metric/language/russian/global/stations/26063.gif"></td>
+    {% endfor %}
+	</tr>
+</table>

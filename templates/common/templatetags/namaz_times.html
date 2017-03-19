@@ -1,0 +1,30 @@
+{% load i18n %}
+<div class="namaz">
+    <div class="namaz-header">{% trans "Расписание намаза" %} &mdash; {% now "j E Y" %}</div>
+    <div class="namaz-list">
+    {% for object in object_list %}
+        <div class="namaz-item"{% if not forloop.first %} style="display:none;"{% endif %}>
+            <div class="namaz-city"><span class="namaz-city-left_arrow">←</span>{% trans object.city %}<span class="namaz-city-right_arrow">→</span></div>
+            <table class="namaz-content">
+                <tr>
+                    <th class="namaz-subheader">{% trans "Фаджр" %}</th>
+                    <th class="namaz-subheader">{% trans "Шурук" %}</th>
+                    <th class="namaz-subheader">{% trans "Зухр" %}</th>
+                    <th class="namaz-subheader">{% trans "Аср" %}</th>
+                    <th class="namaz-subheader">{% trans "Магриб" %}</th>
+                    <th class="namaz-subheader">{% trans "Иша" %}</th>
+                </tr>
+                <tr>
+                    <td class="namaz-item">{{ object.ezan }}</td>
+                    <td class="namaz-item">{{ object.gunes }}</td>
+                    <td class="namaz-item">{{ object.ogle }}</td>
+                    <td class="namaz-item">{{ object.ikindi }}</td>
+                    <td class="namaz-item">{{ object.aksam }}</td>
+                    <td class="namaz-item">{{ object.yatsi }}</td>
+                </tr>
+            </table>
+        </div>
+    {% endfor %}
+    </div>
+</div>
+

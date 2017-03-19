@@ -1,0 +1,17 @@
+{% extends "articles/list.html" %}
+{% load staticfiles i18n image common %}
+{% block meta %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static "/js/galleria/themes/turkish/galleria.turkish.css" %}">
+    <link rel="stylesheet" href="{% static "/css/black.css" %}">
+{% endblock %}
+{% block article_header %}{% endblock %}
+{% block article-item-suffix %}{% if forloop.counter0|divisibleby:2 %}_left{% else %}_right{% endif %}{% endblock %}
+{% block article_content %}
+    <div class="article-content">
+        {% image object.image "2" %}
+            <img class="article-image_size_2_1" alt="{{ object.title }}" width="{{ width }}" height="{{ height }}" src="{{ src }}">
+        {% endimage %}
+        <span class="article-content-label">{{ object.title }}</span>
+    </div>
+{% endblock %}

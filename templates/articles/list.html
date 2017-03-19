@@ -1,0 +1,62 @@
+{% extends "page.html" %}
+{% load news image banners common i18n %}
+{% block title %}{% title %}{{ view.category.name }}{% endtitle %}{% endblock %}
+{% block main_banner %}{% if view.tag %}{% show_banner_extra view.tag.0.slug %}{% endif %}{% endblock %}
+{% block page %}
+<section class="list_page">
+    {% block page_top %}{% show_banner_extra view.category.slug %}{% endblock %}
+    {% block page_header %}
+        <h1 class="list_page_header">
+            {{ view.category.name }}
+            {% if view.tag %}
+                {% trans "по тегу" %}:
+                {% for tag in view.tag %}
+                    {{ tag.name }}{% if not forloop.last %}, {% endif %}
+                {% endfor %}
+            {% endif %}
+        </h1>
+    {% endblock %}
+    {% block page_content %}
+        <div class="article">
+            {% for object in object_list %}
+                <article class="article-item{% block article-item-suffix %}{% if forloop.last %}_last{% endif %}{% endblock %}">
+                    <a class="article-link" href="{{ object.get_absolute_url }}">
+                        {% block article_header %}
+                            <header class="article_header">
+                                <h2 class="article_header-title">{{ object.title }}</h2>
+                                {% block article_header-subtitle %}
+                                    <div class="article_header-subtitle">
+                                        <time class="article_header-time" datetime="{{ object.pub_date|date:"Y-m-d\TH:iO" }}" pubdate>
+                                            {{ object.pub_date|date:"d E Y, H:i" }}
+                                        </time>
+                                        {% if view.category.slug == "news" %} | <span>{{ object.category.name }}</span>{% endif %}
+                                        {% show_adminmenu %}
+                                        {% show_pageviews object.pageviews %}
+                                    </div>
+                                {% endblock %}
+                            </header>
+                        {% endblock %}
+                        {% block article_content %}
+                            <div class="article-content">
+                                {% image object.image '1' %}
+                                    <img class="article-image_size_1" alt="{{ object.title }}" width="{{ width }}" height="{{ height }}" src="{{ src }}">
+                                {% endimage %}
+                                {{ object.content|newscut:30|endtext|safe }}
+                            </div>
+                        {% endblock %}
+                    </a>
+                </article>
+            {% empty %}
+                <article class="article-item_last">
+                    <p>{% trans "Статьи не найдены" %}</p>
+                </article>
+            {% endfor %}
+        </div>
+    {% endblock %}
+    {% block page_footer %}
+        <footer class="list_page-footer">
+            {% include "includes/pagination.html" %}
+        </footer>
+    {% endblock %}
+</section>
+{% endblock %}

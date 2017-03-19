@@ -1,0 +1,36 @@
+{% load image static %}{% spaceless %}
+{% block style %}
+    <style></style>
+{% endblock %}
+<div class="informer{{v}}">
+    {% block header %}
+        <div class="informer{{v}}-header">
+            <a href="{{ url }}" title="{{ title }}">
+                <img class="informer{{v}}-logo" border="0" alt="{{ title }}" src="{% static logo_path %}">
+            </a>
+        </div>
+    {% endblock %}
+    {% block content %}
+        <table class="informer{{v}}-content" width="100%" cellspacing="0" cellpadding="0" border="0">
+            {% for object in object_list %}
+                <tr>
+                    <td width="106" class="informer{{v}}-left{% if forloop.last %} informer{{v}}-left_last{% endif %}">
+                        <a href="{{ url }}{{ object.get_absolute_url }}" target="_blank">
+                            {% image object.image "informer" %}
+                                <img class="informer{{v}}-image" border="0" alt="{{ object.title }}" width="{{ width }}" height="{{ height }}" src="{{ src }}">
+                            {% endimage %}
+                        </a>
+                    </td>
+                    <td width="*"  class="informer{{v}}-right{% if forloop.last %} informer-right_last{% endif %}">
+                        <a class="informer{{v}}-link" href="{{ url }}{{ object.get_absolute_url }}" target="_blank">{{ object.title }}</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endblock %}
+    {% block footer %}
+        <div class="informer{{v}}-footer">
+            <a class="informer{{v}}-footer-link" href="{{ url }}{% url "informer_help" %}">{{ footer_title }}</a>
+        </div>
+    {% endblock %}
+</div>{% endspaceless %}

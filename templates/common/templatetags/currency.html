@@ -1,0 +1,11 @@
+<div class="currency">
+    <table>
+        <tr>
+            {% for object in object_list %}
+                <td title="{{ object.date }}"><span>{{ object.code }}</span> {{ object.value }}</td>
+            {% empty %}
+                <td>Loading...</td>
+            {% endfor %}
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,29 @@
+{% extends "news/detail.html" %}
+{% load staticfiles photogallery image common %}
+{% block meta %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static "/js/galleria/themes/turkish/galleria.turkish.css" %}">
+    <link rel="stylesheet" href="{% static "/css/black.css" %}">
+{% endblock %}
+{% block page_content %}
+    <div id="galleria">
+        {% for image in image_list %}
+            {% image image.image %}
+                <img data-title="{{ image.description }}" data-description="" alt="" width="{{ width }}" height="{{ height }}" src="{{ src }}">
+            {% endimage %}
+        {% endfor %}
+    </div>
+    <div class="detail_page-content">
+        {{ object.content|safe }}
+    </div>
+{% endblock %}
+{% block scripts %}
+    {{ block.super }}
+    <script src="{% static "/js/galleria/galleria-1.2.9.min.js" %}"></script>
+    <script src="{% static "/js/galleria/themes/turkish/galleria.turkish.min.js" %}"></script>
+    <script>
+        Galleria.configure({transition: 'fade', lightbox: true, _toggleCaption: false});
+        Galleria.run('#galleria');
+    </script>
+{% endblock %}
+

@@ -1,0 +1,1541 @@
+@import "normalize.css"
+
+/* ==========================================================================
+   Variables
+   ========================================================================== */
+
+line_height = 20px
+gutter = 20px
+
+page_width = 960px
+left_column = 630px
+right_column = page_width - left_column
+
+full_width = left_column
+half_width = round((full_width - gutter)/2)
+half_height = line_height * 9
+quarter_width = round((half_width - gutter)/2)
+quarter_height = line_height * 5
+three_quarter_width = full_width - quarter_width - gutter
+
+
+// colors
+text_active = #222
+text_hover = lighten(text_active, 25%)
+text_inactive = lighten(text_active, 50%)
+
+subtext_active = lighten(text_active, 40%)
+subtext_hover = lighten(text_active, 55%)
+
+link_active = #1F6BA2
+link_hover = #237AB8
+
+footer_active = #3C6171
+footer_hover = lighten(footer_active, 15%)
+
+/* ==========================================================================
+   images
+   ========================================================================== */
+
+.image
+  -size_1
+    width quarter_width
+  -size_2
+    width half_width
+  -size_3
+    width three_quarter_width
+  -size_4
+    width full_width
+    margin-bottom 5px
+/* ==========================================================================
+   Main
+   ========================================================================== */
+html
+button
+input
+select
+textarea
+  color text_active
+
+body
+  font 13px/20px Arial, Helvetica, sans-serif
+  background #ccc center top repeat-y url("/static/images/body_bg1.png")
+
+::-moz-selection
+  background #69c
+  text-shadow none
+
+::selection
+  background #69c
+  text-shadow none
+
+hr
+  display block
+  height 1px
+  border 0
+  border-top 1px solid #ccc
+  margin 1em 0
+  padding 0
+
+img
+  vertical-align middle
+
+fieldset
+  border 0
+  margin 0
+  padding 0
+
+textarea
+  resize vertical
+
+p
+  margin-top 0
+h1
+  font-size 1.3em
+  margin 0 0 line_height/4 0
+  color link_active
+h2
+  font-size 1.16667em
+  margin 0 0 line_height/4 0
+  color text_active
+h3
+  font-size 1.1em
+  margin 0
+  color text_active
+h4
+  font-size 1em
+  font-weight bold
+  margin 0
+  color text_active
+
+blockquote
+  width 39%
+  float right
+  margin 0 0 10px 30px
+  padding 10px
+  background #ddd
+  :before
+    content &xE2809D
+    font-size 95px
+    line-height 40px
+    height 30px
+    overflow hidden
+    color #ccc
+    float left
+    margin 0 0 -20px -5px
+    padding 20px 7px 0 0
+
+.chromeframe
+  margin 0.2em 0
+  background #ccc
+  color #000
+  padding 0.2em 0
+
+/* ==========================================================================
+   Wrappers
+   ========================================================================== */
+
+.wrapper
+  -header
+    height 20px
+    background #fff url("/static/images/body_top_bg1.png") center top no-repeat
+  -content
+    margin 0 auto
+    padding-top (line_height * 3/4)
+    max-width page_width
+    background-color #fff
+    overflow hidden
+  -footer
+    height 20px
+    background #fff url("/static/images/body_bottom_bg1.png") center top no-repeat
+
+/* ==========================================================================
+   Pageviews
+   ========================================================================== */
+
+.pageviews
+  position absolute
+  right 0
+  bottom 0
+  color #888
+  font-size 11px
+  span
+    display inline-block
+    width 16px
+    height 12px
+    background url("/static/images/eye.png") no-repeat
+
+/* ==========================================================================
+   Banners
+   ========================================================================== */
+
+.banner
+  z-index 0
+  cursor pointer
+  overflow hidden
+  margin-bottom line_height/2
+
+.top_banner
+  margin 0 auto line_height/2 auto
+
+.header_banner
+  padding-top line_height/2
+  margin 0
+
+.main_banner
+.content_banner
+  margin-bottom line_height/2
+
+.sidebar_banner
+  margin-bottom line_height
+
+.outer-right_banner
+.outer-left_banner
+  display none
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+
+.header_time
+  display block
+  color lighten(text_active, 15%)
+  margin-left 20px
+  -date
+    font-weight bold
+  -week
+    text-transform lowercase
+  -tz
+    color #999
+  -time
+    color #fff
+    background #999
+    font-weight bold
+    padding-left .2em
+    padding-right .2em
+    display inline
+
+.header_logo
+  width 400px
+  -left
+    float left
+    width 250px
+  -right
+    margin-left 250px
+  -image
+    height 85px
+    width 250px
+    background url("/static/images/LogoMK.jpg") no-repeat
+    margin 0
+    background-color transparent
+    border 0
+    overflow hidden
+    :before
+      content ""
+      display block
+      width 0
+      height 100%
+
+/* ==========================================================================
+   Main
+   ========================================================================== */
+
+.main_content
+  clearfix true
+  margin-bottom line_height
+  background url("/static/images/sidebar_bg.png") top right repeat-y
+  -left
+    float left
+    width 100%
+  -wrap
+    margin-right right_column
+  -right
+    float left
+    width right_column - 10
+    margin-left -right_column + 10
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.main_footer
+  clearfix true
+  padding 10px
+  margin-bottom line_height
+  background #A7C0CA
+  border-bottom none
+  font-size .91em
+  color footer_active
+  -menu
+    float left
+    width 45%
+    text-align center
+  -logos
+    float left
+    width 40%
+    text-align center
+  -counters
+    float left
+    width 140px
+    text-align right
+  -row
+    clearfix true
+  a
+    text-decoration none
+    color footer_active
+    :hover
+      text-decoration none
+      color footer_hover
+  -copyright
+    line-height line_height * 3/4
+
+.counter
+  float right
+  margin-bottom line_height/4
+  margin-left 5px
+
+/* ==========================================================================
+   Sidebar
+   ========================================================================== */
+
+.sidebar
+  background #dfdfdf
+  -wrap
+    clearfix true
+    margin 5px auto 0 auto
+    width 280px
+
+/* ==========================================================================
+   Menus
+   ========================================================================== */
+
+.menu
+  clearfix true
+  margin-bottom line_height/2
+  -item
+    float left
+    color #fff
+    font-size 12px
+    font-weight bold
+    text-decoration none
+    :visited
+      color #fff
+
+.top_menu
+  margin-bottom line_height/2
+  background url("/static/images/top_menu_bg.png")
+  -item
+    background url("/static/images/top_menu_sprite.png") 0px 0px repeat-x
+    padding 7px 5px 5px 5px
+    text-transform uppercase
+    :hover
+      background url("/static/images/top_menu_sprite.png") 0 -32px repeat-x
+    _selected
+      background url("/static/images/top_menu_sprite.png") 0 -64px repeat-x
+    _last
+      padding 7px 5px 5px 5px
+      _selected
+        background url("/static/images/top_menu_sprite.png") 0 -64px repeat-x
+      :hover
+        background url("/static/images/top_menu_sprite.png") 0 -32px repeat-x
+    _contact
+      padding 7px 5px 5px 5px
+      _selected
+        background url("/static/images/top_menu_sprite.png") 0 -64px repeat-x
+      :hover
+        background url("/static/images/top_menu_sprite.png") 0 -32px repeat-x
+    _haberrus
+      float right
+      padding 4px 0 3px 0
+      :hover
+        opacity 0.9
+
+.context_menu
+  border 1px solid #94aab3
+  background-color #ddd
+  padding 4px 14px 0 14px
+  -item
+    position relative
+    margin-bottom 14px
+    :hover
+      color #eee
+      .context_menu-image
+      .context_menu-image_last
+        opacity 0.9
+  -image
+    width 190px
+    margin-right 15px
+    _last
+      margin-right 0
+  -header
+    color #3C6171
+    font-weight bold
+    margin-bottom 5px
+  -label
+    width 186px
+    padding 5px 2px
+    text-align center
+    display block
+    position absolute
+    left 0
+    bottom 0
+    background url("/static/images/transparent_bg.png")
+  -icon
+    padding-left 25px
+    _video
+      background url("/static/images/video_icon.png") no-repeat
+    _photo
+      background url("/static/images/photo_icon.png") no-repeat
+    _pencil
+      background url("/static/images/pencil_icon.png") no-repeat
+
+.footer_menu
+  float left
+  margin 0 0 line_height/4 gutter
+  text-align left
+  -header
+    font-size 1.05em
+    color footer_active
+    font-weight bold
+    margin 0
+  -list
+    padding 0
+    margin 0
+    list-style-type none
+  -item
+    float none
+    line-height line_height * 3/4
+  -link
+    font-weight normal
+    font-size 0.9em
+    line-height line_height * 3/4
+    color footer_active
+    text-decoration none
+    :hover
+    _selected
+      color footer_hover
+      text-decoration underline
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+
+.header
+  -title
+    color link_active
+    font-size 1.33333em
+    margin 0
+  -subtitle
+    color subtext_active
+    font-size 0.95em
+    height line_height
+    line-height line_height
+  -link
+    color subtext_active
+    text-decoration none
+    :hover
+      color subtext_hover
+
+.article_header
+  margin 0
+  -title
+    pass
+  -subtitle
+    position relative
+  -link
+    pass
+    :hover
+      pass
+
+.main_header
+  clearfix true
+  overflow hidden
+  margin-bottom line_height/4
+  -left
+    float left
+    width 400px
+  -right
+    margin-left 400px
+
+.page_header
+  color #555
+  margin-bottom line_height/2
+  -title
+    pass
+  -subtitle
+    pass
+  -link
+    pass
+    :hover
+      pass
+
+.main_page_header
+  padding line_height/4
+  height line_height
+  background #dfdfdf url("/static/images/h_menu_bg.png") repeat-x
+  -wrap
+    display block
+  -title
+    float left
+    width 50%
+    color lighten(text_active, 20%)
+  -arrow
+    color text_active
+    margin-left 50%
+    text-decoration none
+    display block
+    text-align right
+  -link
+    text-decoration none
+    :hover
+      .main_page_header
+        -title
+          color text_hover
+        -arrow
+          color text_hover
+
+.list_page_header
+  display block
+  padding (line_height/4)
+  margin 0 0 (line_height/2) 0
+  height line_height
+  background #dfdfdf url("/static/images/h_menu_bg.png") repeat-x
+
+
+.detail_page_header
+  color link_active
+  margin-bottom (line_height/4)
+  -title
+    pass
+  -subtitle
+    position relative
+  -link
+    pass
+    :hover
+      pass
+
+/* ==========================================================================
+   Page
+   ========================================================================== */
+
+.page
+  margin-bottom (line_height/2)
+  clearfix true
+
+.main_page
+  pass
+  -left
+    float left
+    width 50%
+  -right
+    float left
+    width 50%
+  -content
+    clearfix true
+    background url("/static/images/spacer.png") repeat-y 50% 0px
+
+.detail_page
+  pass
+  -content
+    clearfix
+    >a
+      color link_active
+      text-decoration underline
+      :hover
+      :visited
+        color link_hover
+    p
+      font-size 14.5px
+      margin-bottom line_height/2
+      :last-child
+        margin-bottom 0
+    img
+      max-width 100%
+      height auto
+  -image
+    position relative
+  -image_size_4
+    max-width 100%
+    height auto
+    margin-bottom line_height/4
+  -nav
+    display block
+    text-decoration none
+    position absolute
+    background url("/static/images/transparent_bg.png")
+    top 45%
+    color #fff
+    font-weight bold
+    font-size 20px
+    line-height 35px
+    padding 0 10px 5px 10px
+    cursor pointer
+    user-select none
+    touch-callout none
+    _left
+      left 0
+      :hover
+        opacity .9
+    _right
+      right 0
+      :hover
+        opacity .9
+  -caption
+    margin-top line_height/2
+    font-weight bold
+    color text_active
+  -author
+    color inherit
+    text-decoration none
+    :hover
+      color subtext_hover
+
+/* ==========================================================================
+   Article
+   ========================================================================== */
+
+.article
+  -item
+    clearfix true
+    padding-bottom line_height/2
+    margin-bottom line_height/4
+    background url("/static/images/spacer.png") left bottom repeat-x
+    word-wrap break-word
+    _last
+      margin-bottom 0
+      padding-bottom 0
+      background none
+  -content
+    color text_active
+    p
+      font-size 14.5px
+      margin-bottom line_height/2
+      :last-child
+        margin-bottom 0
+  -image_size
+    float left
+    _1
+      width quarter_width
+      height quarter_height - 5
+      margin 5px gutter/4 0 0
+    _2
+      max-width 100%
+      height auto
+      //width half_width
+      //height half_height
+      margin 5px gutter/4 0 0
+    _3
+      max-width 100%
+      height auto
+      //width three_quarter_width
+      margin-right gutter/4
+    _4
+      float none
+      width full_width
+      margin-right 0
+      margin-bottom gutter/4
+  -link
+    text-decoration none
+    :hover
+      .article
+        _header
+          -title
+            color link_hover
+          -subtitle
+            color subtext_hover
+        -content
+          color text_hover
+        -image_size
+          _1
+          _2
+          _3
+          _4
+            opacity .9
+  -left
+    clearfix true
+    padding-right 10px
+  -right
+    clearfix true
+    margin-left gutter/2
+    margin-bottom line_height/4
+    padding-bottom line_height/2
+    background url("/static/images/spacer.png") left bottom repeat-x
+    .article-image_size_1
+      float left
+    _last
+      margin-bottom 0
+      padding-bottom 0
+      background none
+      .article-image_size_1
+        float left
+
+/* ==========================================================================
+   Tags
+   ========================================================================== */
+
+.tags
+  font-size 0.9em
+  color subtext_active
+  text-align left
+  margin-bottom 0
+  -title
+    color text_active
+  -link
+    color subtext_active
+    text-decoration none
+    :hover
+      color subtext_hover
+
+/* ==========================================================================
+   Related
+   ========================================================================== */
+
+.related
+  clearfix true
+  background url("/static/images/spacer.png") repeat-x
+  margin-top line_height/4
+  padding-top line_height/4
+  -title
+    margin line_height/4 0 line_height/2 0
+  -item
+    display inline-block
+    width 143px
+    overflow hidden
+    padding-right 11px
+    height 180px
+    vertical-align top
+    text-align center
+  -wrap
+    margin-bottom line_height/2
+  -link
+    font-weight bold
+    color link_active
+    text-decoration none
+    :hover
+      color link_hover
+      .related-image
+        opacity .9
+  -image
+    margin 0
+    float left
+
+/* ==========================================================================
+   Similiar
+   ========================================================================== */
+
+.linked
+  background url("/static/images/spacer.png") repeat-x
+  margin-top 5px
+  padding-top 5px
+  -title
+    margin 5px 0
+  -time
+    display inline
+  -link
+    color link_active
+    text-decoration none
+    :hover
+      color link_hover
+
+
+/* ==========================================================================
+   Authors
+   ========================================================================== */
+
+.authors
+  -list
+    margin 5px 0 0 70px
+    padding-left 0
+    list-style none
+  -link
+    display block
+    margin-left 83px
+    color text_active
+    text-decoration none
+    :hover
+      color text_hover
+  -image
+    float left
+  -time
+    float left
+    width 83px
+    color subtext_hover
+    font-size 0.95em
+
+/* ==========================================================================
+   Pagination
+   ========================================================================== */
+
+.p10n
+  clearfix true
+  text-align center
+  margin-top line_height
+  margin-bottom line_height/2
+  color text_active
+  height line_height + line_height/2
+  line-height line_height + line_height/2
+  -link
+    display inline-block
+    background-color #f5f5f5
+    text-decoration none
+    text-align center
+    color text_active
+    width line_height + line_height/2
+    :hover
+      background-color #94AAB3
+      color #fff
+    _elipsis
+      pass
+    _current
+      background-color #94AAB3
+      color #fff
+    _inactive
+      color text_inactive
+    _arrow
+      pass
+      :hover
+        color #94AAB3
+        font-weight bold
+
+/* ==========================================================================
+   headline
+   ========================================================================== */
+.headline
+  clearfix true
+  margin-bottom (line_height/2)
+
+.slider
+  background none
+  overflow hidden
+  position relative
+  -article
+    position relative
+  -title
+    width 100%
+    height 50px
+    position absolute
+    left 0
+    bottom 0
+    background url("/static/images/transparent_bg.png")
+    font-size 20px
+    color #fff
+    text-decoration none
+    overflow hidden
+    :hover
+      color #ccc
+  -wrap
+    margin 5px 10px 3px 10px
+    height 42px
+    overflow hidden
+  -item
+    display block
+    overflow hidden
+  -image
+    max-width 100%
+    height auto
+    margin 0
+    float none
+  -nav
+    position absolute
+    background url("/static/images/transparent_bg.png")
+    top 45%
+    color #fff
+    font-weight bold
+    font-size 20px
+    line-height 35px
+    padding 0 10px 5px 10px
+    cursor pointer
+    user-select none
+    touch-callout none
+    _left
+      left 0
+      :hover
+        opacity .9
+    _right
+      right 0
+      :hover
+        opacity .9
+  _pagination
+    width left_column
+    height 30px
+    background #f5f5f5
+    -item
+      float left
+      width 35px
+      height 20px
+      padding 5px 0 5px 0
+      text-decoration none
+      line-height 20px
+      text-align center
+      color #111
+    .js-current
+      background #94AAB3
+      color #fff
+
+/* ==========================================================================
+   slidebox
+   ========================================================================== */
+
+.slidebox
+  width 280px
+  margin-bottom line_height
+  background #fff
+  color #000
+  -header
+    text-align center
+    font-weight bold
+    font-size 1.33em
+    padding 5px 0 0 0
+  -arrow
+    font-size 1.1em
+  -title
+    color link_active
+    text-decoration none
+    :hover
+      color link_hover
+  -image
+    width 130px
+    height 100px
+    margin-top 5px
+    vertical-align middle
+    _left
+      margin-right 2px
+    _right
+      margin-left 2px
+  -table
+    padding 0
+    margin 0
+    border none
+  -cell
+    padding 0
+    margin 0
+    vertical-align middle
+    text-align center
+    _image
+      vertical-align top
+  -content
+    overflow hidden
+    margin 0 2px 5px 2px
+    height 105px
+  -link
+    text-decoration none
+    color #222
+    font-weight bold
+    :hover
+      color #555
+    .title
+      vertical-align middle
+    .right
+      padding 0 0 0 5px
+      img
+        float right
+  _pagination
+    margin 0
+    padding 0
+    background #F5F5F5
+    list-style none
+    overflow hidden
+    -item
+      float left
+      padding 5px 0 5px 0
+      width 35px
+      height 20px
+      cursor pointer
+      line-height 20px
+      text-align center
+    -link
+      text-decoration none
+      color text_active
+    .js-current
+      background #94AAB3
+      .slidebox_pagination-link
+        color #fff
+
+/* ==========================================================================
+   video-gallery banner
+   ========================================================================== */
+
+.videogallery_banner
+  width 280px
+  margin-bottom line_height
+  -link
+    color link_active
+    text-decoration none
+    :hover
+      color link_hover
+  -header
+    font-size 1.33em
+    margin 0 0 line_height/4 0
+    text-align center
+    color inherit
+  -arrow
+    font-size 1.1em
+
+/* ==========================================================================
+   photo-gallery banner
+   ========================================================================== */
+
+.photogallery_banner
+  width 280px
+  clearfix true
+  margin-bottom line_height
+  -link
+    color link_active
+    text-decoration none
+    :hover
+      color link_hover
+  -header
+    text-align center
+    font-size 1.33em
+    margin 0 0 line_height/4 0
+    color inherit
+  -arrow
+    color inherit
+    font-size 1.1em
+  -content
+    color #fff
+    float left
+    position relative
+    text-decoration none
+    font-weight bold
+    :hover
+      color #ccc
+      opacity .9
+  -title
+    width 270px
+    height 40px
+    padding 0 5px
+    display block
+    position absolute
+    overflow hidden
+    left 0
+    bottom 0
+    background url("/static/images/transparent_bg.png")
+
+/* ==========================================================================
+   image-gallery
+   ========================================================================== */
+
+.photogallery
+  clearfix true
+  -image
+    float left
+    width 150px
+    margin 0 gutter/2 line_height/2 0
+    _main
+      float none
+      width full_width
+      margin 0
+      cursor pointer
+    _last
+      margin-right 0
+  -link
+    :hover
+      opacity 0.5
+  .js-current
+    opacity 0.5
+  _pagination
+    background #F5F5F5
+    overflow hidden
+    margin-bottom line_height/4
+    -link
+      float left
+      padding 5px 0 5px 0
+      width 35px
+      height 20px
+      cursor pointer
+      line-height 20px
+      text-align center
+      text-decoration none
+      color text_active
+      _arrow
+        padding 4px 0 5px 0
+        :hover
+          color #94AAB3
+          font-weight bold
+      :hover
+        background #94AAB3
+        color #fff
+    .js-current
+      background #94AAB3
+      color #fff
+
+/* ==========================================================================
+   blog-headlines
+   ========================================================================== */
+
+.blog_headlines
+  width 280px
+  margin-bottom line_height
+  -link
+    color link_active
+    text-decoration none
+    :hover
+      color link_hover
+  -header
+    text-align center
+    font-size 1.33em
+    margin 0 0 line_height/4 0
+    color inherit
+  -date
+    font-size 0.95em
+    color subtext_active
+  -author
+    color link_active
+    text-decoration none
+    :hover
+      color link_hover
+  -arrow
+    display inline
+    font-size 1.2em
+  -content
+    margin-bottom (line_height/2)
+    padding 0
+    color text_active
+    text-decoration none
+    _link
+      pass
+      :hover
+        color text_hover
+    p:last-child
+      margin-bottom 0
+    .pageviews
+      position static
+      font-size 12px
+  -image
+    float right
+    margin-left 3px
+  -title
+    color link_active
+    text-decoration none
+    _link
+      color inherit
+      text-decoration none
+      :hover
+        color link_hover
+
+/* ==========================================================================
+   search
+   ========================================================================== */
+
+.search
+  width 280px
+  height 35px
+  padding 0
+  margin 0
+
+.yaform__search-input
+  padding 0
+
+/* ==========================================================================
+   weather
+   ========================================================================== */
+
+.weather
+  width 280px
+  border none
+  margin-bottom line_height
+  background-color #fff
+  th
+    color link_active
+    font-weight bold
+    padding 5px 0 0 0
+  td
+    text-align center
+    padding 0
+    width 33%
+  span
+    color #D32B30
+    font-weight bold
+  img
+    margin-bottom 0px
+
+/* ==========================================================================
+   currency
+   ========================================================================== */
+
+.currency
+  width 280px
+  border none
+  margin-bottom line_height
+  background-color #fff
+  table
+    width 100%
+    border none
+  td
+    text-align center
+    padding 5px 0
+    width 33%
+    font-weight bold
+  span
+    color #D32B30
+
+/* ==========================================================================
+   popular
+   ========================================================================== */
+
+.popular
+  width 280px
+  margin-bottom line_height
+  background-color #fff
+  -header
+    padding-top 5px
+    font-weight bold
+    color link_active
+    text-align center
+
+/* ==========================================================================
+   namaz
+   ========================================================================== */
+
+.namaz
+  width 280px
+  margin-bottom line_height
+  background-color #fff
+  -header
+    padding-top 5px
+    font-weight bold
+    color link_active
+    text-align center
+  -city
+    padding-bottom 5px
+    font-weight bold
+    color link_active
+    text-align center
+    position relative
+    -left_arrow
+      position absolute
+      left 5px
+    -right_arrow
+      position absolute
+      right 5px
+  -content
+    width 100%
+    border none
+  -subheader
+  -item
+    text-align center
+    padding 0
+    margin 0
+  -city
+    -left_arrow
+    -right_arrow
+      cursor pointer
+
+/* ==========================================================================
+   polls
+   ========================================================================== */
+
+.poll
+  width 280px
+  margin-bottom line_height
+  background-color #fff
+  -header
+    font-weight bold
+    padding-top 5px
+    color link_active
+    text-align center
+  -content
+    padding line_height/2 line_height/2 0 line_height/2
+    border none
+  -footer
+    padding-right line_height/2
+    text-align right
+  -link
+    color #666
+    font-size 11px
+    text-decoration none
+    :hover
+      text-decoration underline
+
+/* ==========================================================================
+   share
+   ========================================================================== */
+
+.share
+  margin 14px 0 14px -3px
+
+/* ==========================================================================
+   banner-7 fix
+   ========================================================================== */
+
+#banner-7
+#banner-2
+  background-color #fff
+
+/* ==========================================================================
+   Logos
+   ========================================================================== */
+
+.logos
+  clearfix true
+  -header
+    font-size 1.05em
+    color footer_active
+    font-weight bold
+    margin 0 0 line_height/4 0
+  -left
+  -right
+    float left
+    width 50%
+  -item
+    pass
+  -link
+    color footer_active
+    text-decoration none
+    :hover
+      color footer_hover
+      text-decoration underline
+  -title
+    display block
+    font-size 0.9em
+  -image
+    float none
+
+/* ==========================================================================
+   Subscribe
+   ========================================================================== */
+
+.subscribe
+  margin-bottom line_height/2
+  -input
+    margin-right gutter/2
+  -button
+    background-color #94AAB3
+    border 0 none
+    border-radius 3px
+    padding 4px
+    color #fff
+    :hover
+      background-color lighten(#94AAB3, 4%)
+
+/* ==========================================================================
+   Messages
+   ========================================================================== */
+
+.messages
+  list-style none
+  margin 0 0 line_height*3/4 0
+  padding 0
+  text-align center
+  font-size 1.1em
+  font-weight bold
+  -debug
+    padding line_height/2
+    background-color #ccc
+  -info
+    padding line_height/2
+    background-color #eee
+  -success
+    padding line_height/2
+    background-color #99FF99
+  -warning
+    padding line_height/2
+    background-color #FFCCCC
+  -error
+    padding line_height/2
+    background-color #FF6666
+
+/* ==========================================================================
+   Facebook widget
+   ========================================================================== */
+
+.fb-like-box
+  height 430px
+  background-color #fff
+  margin-bottom line_height
+
+/* ==========================================================================
+   Article aside
+   ========================================================================== */
+
+.article-aside
+  float right
+  width 305px
+  margin line_height/2 0 line_height/2 line_height/2
+  background-color #004F7B
+  position relative
+  -link
+    color #fff
+    text-decoration none!important
+    font-weight bold
+    :hover
+      opacity .9
+  -title
+    padding line_height/2 line_height/4 line_height/2 line_height/2
+    text-decoration none
+  .pageviews
+    color #fff
+    right 4px
+
+/* ==========================================================================
+   Mobile currency & namaz show
+   ========================================================================== */
+
+.mobile
+  display none
+
+/* ==========================================================================
+   MEDIA QUERIES
+   ========================================================================== */
+
+@media only screen and (min-width: 1014px)
+  .photogallery-wrap_image_main
+  .slider-article
+    height 350px
+    overflow hidden
+  .outer-right_banner
+    display block
+    position absolute
+    top 0
+    left -155px
+  .outer-left_banner
+    display block
+    position absolute
+    top 0
+    right -155px
+  .wrapper-content
+    position relative
+    overflow visible
+
+@media only screen and (max-width: 1015px)
+  .wrapper
+    -header
+    -footer
+      display none
+
+@media only screen and (max-width: 985px)
+  .main_content-page_wrap
+    margin-left 5px
+  .wrapper-content
+    padding-top 0
+  .main_footer
+    margin-bottom 0
+  .top_menu-item_haberrus
+    float left
+
+@media only screen and (max-width: 965px)
+  .main_content
+    background url("/static/images/sidebar_bg_small.png") top right repeat-y
+    margin-bottom line_height/2
+    -wrap
+      margin-right right_column - 20px
+    -right
+      float left
+      width right_column - 30px
+      margin-left 30px - right_column
+  .currency
+  .sidebar_banner
+  .fb-like-box
+  .slidebox
+  .weather
+  .namaz
+  .videogallery_banner
+  .photogallery_banner
+  .haberrus-informer
+  .subscribe
+    margin-bottom line_height/2
+  .main_page_header
+    -arrow-title
+      display none
+    -title
+      width 80%
+    -arrow
+      margin-left 80%
+
+@media only screen and (max-width: 750px)
+  .main_page
+    -content
+      background none
+    -left
+      float none
+      width 100%
+    -right
+      margin-left 0
+      width 100%
+  .article
+    -left
+      background url("/static/images/spacer.png") repeat-x left bottom
+      margin-bottom 5px
+      padding-bottom 10px
+      margin-left 0
+    -right
+      margin-left 0
+      _last
+        pass
+    -image_size_2
+      width 143px
+
+@media only screen and (max-width: 640px)
+  .main_content
+    margin-bottom 0
+    background none
+    -wrap
+      margin-right 0
+    -page_wrap
+      margin-right 5px
+    -right
+      float left
+      width 100%
+      margin-left 0
+  .main_footer
+    -menu
+    -counters
+    -logos
+      width 270px
+      margin-bottom 5px
+  .main_page
+    pass
+    -content
+      background url("/static/images/spacer.png") repeat-y 50% 0px
+    -left
+      float left
+      width 50%
+    -right
+      float left
+      width 50%
+  .article
+    -left
+      background none
+      padding-bottom 0
+      padding-right 10px
+      margin-bottom 0
+      margin-left 0
+    -right
+      margin-left gutter/2
+      _last
+        pass
+    -image_size_2
+      width 305px
+
+@media only screen and (max-width: 540px)
+  .main_page
+    pass
+    -content
+      background none
+    -left
+      float none
+      width 100%
+    -right
+      width 100%
+      margin-left 0
+  .article
+    -left
+      background url("/static/images/spacer.png") left bottom repeat-x
+      margin-bottom 5px
+      padding-bottom 10px
+      margin-left 0
+    -right
+      margin-left 0
+      _last
+        pass
+    -image_size_2
+      width 143px
+  .mobile
+    display block
+    text-align center
+    >div
+      display inline-block
+
+@import "helper.css"
+@import "print.css"

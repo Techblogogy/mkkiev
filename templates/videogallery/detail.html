@@ -1,0 +1,12 @@
+{% extends "news/detail.html" %}
+{% load videogallery image staticfiles common %}
+{% block meta %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static "/css/black.css" %}">
+{% endblock %}
+{% block page_content %}
+    <div class="detail_page-content">
+        <div class="black_box">{% show_video object.video 630 %}</div>
+        {{ object.content|safe }}
+    </div>
+{% endblock %}

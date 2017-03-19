@@ -1,0 +1,11 @@
+{% load i18n %}
+<div class="footer_menu">
+<h4 class="footer_menu-header">{% trans "Категории" %}</h4>
+<ul class="footer_menu-list">
+    {% for object in object_list %}
+        <li class="footer_menu-item">
+            <a class="footer_menu-link{% if path == object.slug %}_selected{% endif %}" href="{% url "news:category:list" object.slug %}">{{ object.name }}</a>
+        </li>
+    {% endfor %}
+</ul>
+</div>

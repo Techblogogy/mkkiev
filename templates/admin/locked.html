@@ -1,0 +1,12 @@
+{% extends "admin/base_site.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Эта страница заблокирована" %}{% endblock %}
+
+{% block content %}
+
+    <h2>{% trans "Эта страница заблокирована" %}</h2>
+
+    {% blocktrans with editor=object.editor edit_date=object.edit_date|timesince %}Эта страница редактируется пользователем {{ editor }}. Время: {{ edit_date }}{% endblocktrans %}
+
+{% endblock %}

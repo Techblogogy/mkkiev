@@ -1,0 +1,15 @@
+{% load image i18n %}
+<div class="photogallery_banner">
+    <a class="photogallery_banner-link" href="{% url "photogallery:list" %}">
+        <h2 class="photogallery_banner-header">
+            {% trans "Фотогалерея" %}
+            <snap class="photogallery_banner-arrow">→</snap>
+        </h2>
+    </a>
+    <a class="photogallery_banner-content" href="{{ object.get_absolute_url }}">
+        {% image object.image "photogallery" %}
+            <img alt="{{ object.title }}" width="{{ width }}" height="{{ height }}" src="{{ src }}">
+        {% endimage %}
+        <span class="photogallery_banner-title">{{ object.title }}</span>
+    </a>
+</div>

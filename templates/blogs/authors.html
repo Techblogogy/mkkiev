@@ -1,0 +1,50 @@
+{% extends "articles/list.html" %}
+{% load news image banners common i18n %}
+{% block title %}{% title %}{% trans "Авторы" %}{% endtitle %}{% endblock %}
+{% block page_header %}
+    <h1 class="list_page_header">
+        {% trans "Авторы" %}
+    </h1>
+{% endblock %}
+{% block page_content %}
+    <div class="article">
+        {% for object in object_list %}
+            <article class="article-item{% if forloop.last %}_last{% endif %}">
+                {% block article_header %}
+                    <a class="article-link" href="{% url "blogs:author:list" object.username %}">
+                        <header class="article_header">
+                            <h2 class="article_header-title">{{ object.full_name }}</h2>
+                            {% block article_header-subtitle %}
+                                <div class="article_header-subtitle">
+                                    {% if object.location %}{{ object.location }} | {% endif %}
+                                    {% trans "Кол-во статей" %}: {{ object.article_count }}
+                                </div>
+                            {% endblock %}
+                        </header>
+                    </a>
+                {% endblock %}
+                {% block article_content %}
+                    <div class="article-content">
+                        <a class="article-link" href="{% url 'blogs:author:list' object.username %}">
+                            {% image object.image "userpics" %}
+                                <img class="authors-image" alt="{{ object.author }}" width="{{ width }}" height="{{ height }}" src="{{ src }}">
+                            {% endimage %}
+                        </a>
+                        <ul class="authors-list" style="">
+                        {% for article in object.author_articles.all %}
+                            <li>
+                                <div class="authors-time">
+                                    <time>{{ article.pub_date|date:"d.m.Y" }}</time> —
+                                </div>
+                                <a class="authors-link" href="{{ article.get_absolute_url }}">{{ article.title }}</a>
+                            </li>
+                        {% endfor %}
+                        </ul>
+                    </div>
+                {% endblock %}
+            </article>
+        {% empty %}
+            <p>{% trans "Авторы не найдены" %}</p>
+        {% endfor %}
+    </div>
+{% endblock %}

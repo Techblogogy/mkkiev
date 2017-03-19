@@ -1,0 +1,17 @@
+{% extends "page.html" %}
+{% load staticfiles common %}
+{% block title %}{% title %}Результаты поиска{% endtitle %}{% endblock %}
+{% block meta %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static "css/search.css" %}">
+{% endblock %}
+{% block page_header %}
+    <h1 class="list_page_header">
+        Результаты поиска
+    </h1>
+{% endblock %}
+{% block page_content %}
+    <div class="detail_page-content">
+        {% include "includes/search.html" with page=1 %}
+    </div>
+{% endblock %}

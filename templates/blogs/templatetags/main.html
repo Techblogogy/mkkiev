@@ -1,0 +1,13 @@
+{% extends "news/templatetags/main.html" %}{% load common %}
+{% block article_header %}
+    <header class="article_header">
+        <h2 class="article_header-title">{{ object.title }}</h2>
+        <div class="article_header-subtitle">
+            <time class="article_header-time" datetime="{{ object.pub_date|date:"Y-m-d\TH:iO" }}" pubdate>
+                {{ object.pub_date|date:"d E Y, H:i" }}
+            </time> |
+            <span class="article_header-author">{{ object.author }}</span>
+            {% show_pageviews object.pageviews %}
+        </div>
+    </header>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% load image i18n %}
+<nav class="context_menu">
+	<a class="context_menu-item" href="{% url "photogallery:list" %}">
+        <div class="context_menu-header context_menu-icon_photo">{% trans "Фотогалерея" %}</div>
+        {% image image.image "context_menu" %}
+            <img class="context_menu-image" alt="{{ image.title }}" width="{{ width }}" height="{{ height }}" src="{{ src }}">
+        {% endimage %}
+        <span class="context_menu-label">{{ image.title }}</span>
+    </a>
+	<a class="context_menu-item" href="{% url "videogallery:list" %}">
+        <div class="context_menu-header context_menu-icon_video">{% trans "Видеогалерея" %}</div>
+        {% image video.image "context_menu" %}
+            <img class="context_menu-image" alt="{{ video.title }}" width="{{ width }}" height="{{ height }}" src="{{ src }}">
+        {% endimage %}
+        <span class="context_menu-label">{{ video.title }}</span>
+    </a>
+	<a class="context_menu-item" href="{% url "news:list" %}?tag={{ tag }}">
+        <div class="context_menu-header context_menu-icon_pencil">{% trans "Карикатуры" %}</div>
+        {% image caricature.image "context_menu" %}
+            <img class="context_menu-image_last" alt="{{ caricature.title }}" width="{{ width }}" height="{{ height }}" src="{{ src }}">
+        {% endimage %}
+        <span class="context_menu-label">{{ caricature.title }}</span>
+    </a>
+</nav>

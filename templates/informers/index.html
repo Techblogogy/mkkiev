@@ -1,0 +1,39 @@
+{% extends "page.html" %}
+{% block page_header %}
+    <h1 class="page_header">
+        Новостной информер МК-Киев
+    </h1>
+{% endblock %}
+{% block page_content %}
+    <div class="detail_page-content">
+Используйте новостной информер для получения свежих новостей нв вашем сайте.
+<br><br>
+<h2>Добавьте следующий код в нужное место на вашем сайте</h2>
+<b>Вариант 1:</b>
+<textarea style="width:100%;" rows="3">&lt;!-- NEWS INFORMER HABERRUS.COM --&gt;
+&lt;script language="javascript" type="text/javascript" src="http://haberrus.com/informer/?count=5"&gt;&lt;/script&gt;
+&lt;!-- END NEWS INFORMER HABERRUS.COM --&gt;
+</textarea>
+<b>Вариант 2:</b>
+<textarea style="width:100%;" rows="3">&lt;!-- NEWS INFORMER HABERRUS.COM --&gt;
+&lt;script language="javascript" type="text/javascript" src="http://haberrus.com/informer/?count=5&style=milliyet"&gt;&lt;/script&gt;
+&lt;!-- END NEWS INFORMER HABERRUS.COM --&gt;
+</textarea>
+        <br><br>
+        <h2>Превью:</h2>
+        <table cellpadding="10" cellspacing="0" border="0" style="background:#ccc; width:100%;;margin-top:10px;">
+            <tr><th>Вариант 1</th><th>Вариант 2</th></tr>
+            <tr>
+                <td width="50%" valign="top">
+                    <!-- NEWS INFORMER HABERRUS.COM -->
+                    <script language="javascript" type="text/javascript" src="http://mkkiev.in.ua/informer/?count=5&v=1"></script>
+                    <!-- END NEWS INFORMER HABERRUS.COM -->
+                </td>
+                <td valign="top">
+                    <!-- NEWS INFORMER HABERRUS.COM -->
+                    <script language="javascript" type="text/javascript" src="http://mkkiev.in.ua/informer/?count=5&style=milliyet&v=2"></script>
+                    <!-- END NEWS INFORMER HABERRUS.COM -->
+                </td>
+        </table>
+    </div>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% load image %}
+{% if object_list %}
+{% spaceless %}
+<div class="slider">
+    <div class="slider-article" id="fps_slider">
+    {% for object in object_list %}
+        <div{% if not forloop.first %} style="display:none;"{% endif %}>
+            {% if object.banner_id %}
+                <a class="slider-item" href="{{ object.get_absolute_url }}" target="_blank" rel="nofollow">
+                    {% image object.image %}
+                        <img class="slider-image js-banner" alt="{{ object.title }}" width="{{ width }}" height="{{ height }}" src="{{ src }}" id="banner-{{ object.banner_id }}">
+                    {% endimage %}
+                </a>
+            {% else %}
+                <a class="slider-item" href="{{ object.get_absolute_url }}">
+                    {% image object.image %}
+                        <img class="slider-image" alt="{{ object.title }}" width="{{ width }}" height="{{ height }}" src="{{ src }}">
+                    {% endimage %}
+                </a>
+                <a class="slider-title" href="{{ object.get_absolute_url }}"><div class="slider-wrap">{{ object.title }}</div></a>
+            {% endif %}
+        </div>
+    {% endfor %}
+    </div>
+    <div class="slider_pagination" id="fps_pagination">
+        {% for object in object_list %}
+            <a class="slider_pagination-item{% if forloop.first %} js-current{% endif %}" href="{{ object.get_absolute_url }}">{{ forloop.counter }}</a>
+        {% endfor %}
+    </div>
+</div>
+{% endspaceless %}
+{% endif %}

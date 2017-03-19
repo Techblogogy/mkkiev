@@ -1,0 +1,14 @@
+.DS_Store
+*.DS_Store
+
+.env/*
+.idea/*
+.ssh/*
+
+*.pyc
+
+.bash_history
+.bash_logout
+.bashrc
+.profile
+.restart

@@ -1,0 +1,17 @@
+{% extends "news/list.html" %}
+{% load news common %}
+{% block page_header %}
+    <h1 class="list_page_header">
+        {{ view.category.name }}{% if view.author %} | {{ view.author }}{% endif %}
+    </h1>
+{% endblock %}
+{% block article_header-subtitle %}
+    <div class="article_header-subtitle">
+        <time class="article_header-time" datetime="{{ object.pub_date|date:"Y-m-d\TH:iO" }}" pubdate>
+            {{ object.pub_date|date:"d E Y, H:i" }}
+        </time>
+        | <span class="article_header-link" onclick="location.href='{% url "blogs:author:list" object.author.username %}';return false;">{{ object.author }}</span>
+        {% show_adminmenu %}
+        {% show_pageviews object.pageviews %}
+    </div>
+{% endblock %}

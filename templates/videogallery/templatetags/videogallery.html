@@ -1,0 +1,10 @@
+{% load news videogallery i18n %}
+<div class="videogallery_banner">
+    <a class="videogallery_banner-link" href="{% url "videogallery:list" %}">
+        <h2 class="videogallery_banner-header">
+            {% trans "Видеогалерея" %}
+            <snap class="videogallery_banner-arrow">→</snap>
+        </h2>
+    </a>
+    {% show_video object.video 280 %}
+</div>

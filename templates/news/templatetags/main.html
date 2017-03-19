@@ -1,0 +1,43 @@
+{% load news image common i18n %}
+<section class="main_page">
+    <header class="main_page_header">
+        <a class="main_page_header-link" href="{{ category.get_absolute_url }}">
+            <div class="main_page_header-wrap">
+                <h1 class="main_page_header-title">{{ category.name }}</h1>
+                <div class="main_page_header-arrow">
+                    <span class="main_page_header-arrow-title">{% trans "Другие новости раздела" %} </span><span>→</span>
+                </div>
+            </div>
+        </a>
+    </header>
+    <div class="main_page-content">
+        <div class="main_page-left">
+            {% for object in object_list %}
+                <article class="article{% cycle "-left" "-right" "-right_last" %}">
+                    <a class="article-link" href="{{ object.get_absolute_url }}">
+                        {% block article_header %}
+                            <header class="article_header">
+                                <h2 class="article_header-title">{{ object.title }}</h2>
+                                <div class="article_header-subtitle">
+                                    <time class="article_header-time" datetime="{{ object.pub_date|date:"Y-m-d\TH:iO" }}" pubdate>{{ object.pub_date|date:"d E Y, H:i" }}</time>
+                                    {% show_pageviews object.pageviews %}
+                                </div>
+                            </header>
+                        {% endblock %}
+                        <div class="article-content">
+                            {% cycle "2" "1" "1" as image_size silent %}
+                            {% image object.image image_size %}
+                                <img class="article-image_size_{{ image_size }}" alt="{{ object.title }}" width="{{ width }}" height="{{ height }}" src="{{ src }}">
+                            {% endimage %}
+                            {{ object.content|newscut:15|endtext|safe }}
+                        </div>
+                    </a>
+                </article>
+                {% if forloop.first %}
+                    </div>
+                    <div class="main_page-right">
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static menu banners common %}
+
+{# header #}
+{% block description %}Интернет издание МК-Киев - новости на русском языке{% endblock %}
+{% block keywords %}новости украина киев{% endblock %}
+{% block author %}МК-Киев{% endblock %}
+{% block meta %}
+    <script type="text/javascript" src="https://apis.google.com/js/plusone.js">{lang: 'ru'}</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+    <script>window.swfobject || document.write('<script src="{% static "js/swfobject.js" %}"><\/script>')</script>
+{% endblock %}
+
+{# body #}
+{% block top %}
+    {% include "includes/counters.html" with top=1 %}
+{% endblock %}
+{% block top_banner %}{% show_banner 'top' 1 %}{% endblock %}
+{% block header_logo %}{% show_header_logo 'МК-Киев' %}{% endblock %}
+{% block banner_560x60 %}{% show_banner 'header-left' 1 %}{% endblock %}
+{% block top_menu %}{% show_top_menu %}{% endblock %}
+
+{# sidebar #}
+{% block sidebar %}{% include "includes/sidebar.html" %}{% endblock %}
+
+{# footer #}
+{% block footer_menu %}{% include "includes/footer_menu.html" %}{% endblock %}
+{% block footer_counters %}{% include "includes/counters.html" with icons=1 %}{% endblock %}
+{% block footer_copyright %}
+    <small>
+        Copyright {% show_now "Y" %} © {% siteurl %}<br>
+        Все права защищены. При использовании и цитировании материалов активная ссылка на сайт {% siteurl %} обязательна!
+    </small>
+{% endblock %}
+
+{# scripts #}
+{% block scripts %}
+    <script src="{% static "js/jquery.fps_slider.js" %}"></script>
+    <script src="{% static "js/script.js" %}"></script>
+    <script src="{% static "banners/js/script.js" %}"></script>
+    {% show_banner_swfobject %}
+    {% include "includes/counters.html" %}
+{% endblock %}
+

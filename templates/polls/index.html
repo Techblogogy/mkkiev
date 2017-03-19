@@ -1,0 +1,31 @@
+{% extends "page.html" %}
+{% load common i18n %}
+{% block title %}{% title %}{% trans "Опросы" %}{% endtitle %}{% endblock %}
+{% block page %}
+    <section class="list_page"><h1 class="list_page_header">Anket</h1>
+        <div class="article">
+            {% if latest_poll_list %}
+                {% for poll in latest_poll_list %}
+                    <article class="article-item">
+                        <a class="article-link" href="{% url 'polls:detail' poll.id %}">
+                            <header class="article_header">
+                                <h2 class="article_header-title">
+                                    {{ poll.question_text }}
+                                </h2>
+                            </header>
+                            <div class="article-content">
+                                {% for choice in poll.choice_set.all %}
+                                    {{ choice.choice_text }} &mdash; {{ choice.votes_percent }}%<br>
+                                {% endfor %}
+                            </div>
+                        </a>
+                    </article>
+                {% endfor %}
+            {% else %}
+                <article class="article-item">
+                    <p>{% trans "Ничего не найдено :(" %}</p>
+                </article>
+            {% endif %}
+        </div>
+    </section>
+{% endblock %}

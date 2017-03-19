@@ -1,0 +1,50 @@
+{% load image %}
+{% if object_list %}
+{% spaceless %}
+<div class="slidebox" id="{% if slug %}{{ slug }}{% else %}{{ id }}{% endif %}">
+	<div class="slidebox-header">
+        {% if slug %}
+            <a class="slidebox-title" href="{% url "news:list" %}?tag={{ slug }}">{{ title }}</a>
+        {% else %}
+            <div class="slidebox-title">{{ title }}</div>
+        {% endif %}
+    </div>
+	<div class="slidebox-content" id="business_news-content">
+	{% for object in object_list %}
+        <div{% if not forloop.first %} style="display:none;"{% endif %}>
+            <a class="slidebox-link" href="{{ object.get_absolute_url }}">
+                <div class="slidebox-content">
+                    <table class="slidebox-table">
+                        <tr>
+                            {% if forloop.counter|divisibleby:2 %}
+                                <td class="slidebox-cell_image">
+                                    {% image object.image "slidebox" %}
+                                        <img class="slidebox-image_left" alt="{{ object.title }}" width="{{ width }}" height="{{ height }}" src="{{ src }}">
+                                    {% endimage %}
+                                </td>
+                                <td class="slidebox-cell">{{ object.title }}</td>
+                            {% else %}
+                                <td class="slidebox-cell">{{ object.title }}</td>
+                                <td class="slidebox-cell_image">
+                                    {% image object.image "slidebox" %}
+                                        <img class="slidebox-image_right" alt="{{ object.title }}" width="{{ width }}" height="{{ height }}" src="{{ src }}">
+                                    {% endimage %}
+                                </td>
+                            {% endif %}
+                        </tr>
+                    </table>
+                </div>
+            </a>
+        </div>
+	{% endfor %}
+	</div>
+	<ul class="slidebox_pagination" id="business_news-navbar">
+	{% for object in object_list %}
+		<li class="slidebox_pagination-item{% if forloop.first %} js-current{% endif %}">
+            <a class="slidebox_pagination-link" href="#{{ forloop.counter }}">{{ forloop.counter }}</a>
+        </li>
+	{% endfor %}
+	</ul>
+</div>
+{% endspaceless %}
+{% endif %}

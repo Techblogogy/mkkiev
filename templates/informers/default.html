@@ -1,0 +1,74 @@
+{% extends "informers/base.html" %}
+{% block style %}
+<style>
+.informer{{v}} {
+    background: #fff !important;
+    margin: 0 0 20px 0 !important;
+}
+.informer{{v}}-header {
+    text-align: center !important;
+    padding: 10px 0 0 0 !important;
+}
+.informer{{v}}-logo {
+    width: 200px !important;
+    height: auto !important;
+    padding: 0 0 0 2px !important;
+    margin: 0 !important;
+    float: none !important;
+}
+.informer{{v}}-link,
+.informer{{v}}-link:visited {
+    color: #222 !important;
+    text-decoration: none !important;
+    font: bold 13px/16px Arial, Helvetica, sans-serif !important;
+    word-wrap: break-word !important;
+}
+.informer{{v}}-link:hover {
+    color: #555 !important
+}
+.informer{{v}}-content {
+    border-collapse: collapse !important;
+    border-spacing: 0 !important;
+}
+.informer{{v}}-left {
+    width: 106px;
+    vertical-align: top !important;
+    padding: 10px 10px 0 10px !important;
+}
+.informer{{v}}-left_last {
+    padding: 10px 10px 0 10px !important;
+}
+.informer{{v}}-right {
+    color: #222 !important;
+    font: bold 13px/16px Arial, Helvetica, sans-serif !important;
+    vertical-align: top !important;
+    padding: 8px 5px 0 0 !important;
+    overflow: hidden !important;
+    word-wrap: break-word !important;
+}
+.informer{{v}}-right_last {
+    padding: 8px 5px 0 0 !important;
+}
+.informer{{v}}-image {
+    padding: 0 !important;
+    margin: 0 !important;
+    float: none !important;
+}
+.informer{{v}}-footer {
+    text-align: right !important;
+    padding-right: 5px !important;
+    height: 15px !important;
+    line-height: 15px !important;
+}
+.informer{{v}}-footer-link,
+.informer{{v}}-footer-link:visited {
+    font-weight: normal !important;
+    font-size: 9px !important;
+    color: #444 !important;
+    text-decoration: none !important;
+}
+.informer{{v}}-footer-link:hover {
+    text-decoration: underline !important;
+}
+</style>
+{% endblock %}

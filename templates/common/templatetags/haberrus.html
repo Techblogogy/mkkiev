@@ -1,0 +1,15 @@
+<div class="haberrus">
+<div class="haberrus__header">
+	<a href="http://haberrus.com" title="Haberler|Rusya`dan son dakika haberleri|Moskovada ve İstanbulda son olaylar">
+        <img alt="Haberler|Rusya`dan son dakika haberleri|Moskovada ve İstanbulda son olaylar" src="http://static.turkishtimes.ru/images/logo.png" />
+    </a>
+</div>
+<div class="haberrus__content">
+{% for alt, href, src in object_list %}
+	<a class="haberrus__item" href="{{ href }}" title="{{ alt }}">
+        <img class="haberrus__image" width="120" height="80" alt="{{ alt }}" src="{{ MEDIA_URL }}images/{{ src }}">
+        <span class="haberrus__label">{{ alt }}</span>
+    </a>
+{% endfor %}
+</div>
+</div>

@@ -1,0 +1,15 @@
+<div class="{% if category %}{{ category }}_{% endif %}banner js-banner" id="banner-{{ object.id }}" style="width:{{ object.width }}px;height:{{ object.height }}px;"{% if object.url %} onclick="window.open('{{ object.url }}')"{% endif %}>
+<object id="swfobj-{{ object.id }}" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="{{ object.width }}" height="{{ object.height }}">
+<param name="movie" value="{{ object.file.url }}" />
+<param name="quality" value="high" />
+<param name="bgcolor" value="#ffffff" />
+{% if object.url %}<param name="wmode" value="transparent" />{% endif %}
+<!--[if !IE]>-->
+<object type="application/x-shockwave-flash" data="{{ object.file.url }}" width="{{ object.width }}" height="{{ object.height }}" bgcolor="#ffffff" quality="high"{% if object.url %} wmode="transparent"{% endif %}>
+<!--<![endif]-->
+<div style="width:{{ object.width }}px;height:{{ object.height }}px;background-color:#ccc;"></div>
+<!--[if !IE]>-->
+</object>
+<!--<![endif]-->
+</object>
+</div>

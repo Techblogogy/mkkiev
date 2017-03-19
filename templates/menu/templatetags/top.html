@@ -1,0 +1,8 @@
+{% load staticfiles %}
+<nav class="top_menu">
+    <a class="top_menu-item{% if path == "" %}_selected{% endif %}" href="/">МК-Киев</a>
+    <a class="top_menu-item{% if path == "news" %}_selected{% endif %}" href="/news/">Новости</a>
+    {% for object in object_list %}
+        <a class="top_menu-item{% if forloop.last %}_last{% endif %}{% if path == object.slug %}_selected{% endif %}" href="{% url "news:category:list" object.slug %}">{{ object.name }}</a>
+    {% endfor %}
+</nav>

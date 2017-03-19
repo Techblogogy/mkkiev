@@ -1,0 +1,90 @@
+{% extends "page.html" %}
+{% load image banners news common i18n %}
+{% block keywords %}{{ block.super }}, {{ object.category|lower }}{% if tags_list %}, {% for object in tags_list %}{{ object.name|lower }}{% if not forloop.last %}, {% endif %}{% endfor %}{% endif %}{% endblock %}
+{% block title %}{% title %}{{ object.title }}{% endtitle %}{% endblock %}
+{% block page_header %}
+    <header class="detail_page_header">
+        <h1 class="detail_page_header-title">{{ object.title }}</h1>
+        {% block article_header-subtitle %}
+            <div class="detail_page_header-subtitle">
+                <time class="detail_page_header-time" datetime="{{ object.pub_date|date:"Y-m-d\TH:iO" }}" pubdate>
+                    {{ object.pub_date|date:"d E Y, H:i" }}
+                </time>
+                {% show_adminmenu %}
+                {% show_pageviews object.pageviews %}
+            </div>
+        {% endblock %}
+    </header>
+{% endblock %}
+{% block page_content %}
+    <div class="detail_page-content">
+        <div class="detail_page-image">
+            {% image object.image %}
+                <img class="detail_page-image_size_4" alt="{{ object.title }}" width="{{ width }}" height="{{ height }}" src="{{ src }}">
+            {% endimage %}
+            <a href="{{ object.get_previous.get_absolute_url }}" class="detail_page-nav_left">←</a>
+            <a href="{{ object.get_next.get_absolute_url }}" class="detail_page-nav_right">→</a>
+        </div>
+        {% if object.aside %}{{ object.content|addaside:related_list|safe }}{% else %}{{ object.content|safe }}{% endif %}
+    </div>
+{% endblock %}
+{% block page_footer %}
+    <footer class="detail_page-footer">
+        <noindex>
+        {% block page_caption %}
+            <div class="detail_page-caption">
+                {{ object.caption|safe }}
+            </div>
+        {% endblock %}
+        {% block warning %}{% include "includes/warning.html" %}{% endblock %}
+        {% block page_tags %}
+            {% if tags_list %}
+                <div class="tags">
+                    <span class="tags-title">{% trans "Tеги" %}:</span>
+                    {% for object in tags_list %}
+                        <a class="tags-link" href="{% url "news:list" %}?tag={{ object.slug }}">{{ object.name }}</a>{% if not forloop.last %}, {% endif %}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endblock %}
+        {% block page_related %}
+            {% if related_list %}
+                <div class="related">
+                    <h2 class="related-title">{% trans "Материалы по теме" %}:</h2>
+                    <div class="related-wrap">
+                        {% for object in related_list %}
+                            <a class="related-link" href="{{ object.get_absolute_url }}">
+                                <div class="related-item">
+                                    {% image object.image '1' %}
+                                        <img class="related-image image_size_1" alt="{{ object.title }}" width="{{ width }}" height="{{ height }}" src="{{ src }}">
+                                    {% endimage %}
+                                    {{ object.title }}
+                                </div>
+                            </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endif %}
+        {% endblock %}
+        {% block page_linked %}
+            {% if linked_list %}
+                <div class="linked">
+                    <h2 class="linked-title">{% trans "Другие новости" %}:</h2>
+                    {% for object in similiar_list %}
+                        <time class="linked-time">{{ object.pub_date|date:"d.m.Y" }}</time> —
+                        <a class="linked-link" href="{{ object.get_absolute_url }}">{{ object.title }}</a>
+                        <br>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endblock %}
+        {% block page_bottom %}
+            {% if object.category.slug == "tourism" %}
+                {% show_banner_extra "tourism" %}
+            {% else %}
+                {% show_banner "main" 1 %}
+            {% endif %}
+        {% endblock %}
+        </noindex>
+    </footer>
+{% endblock %}

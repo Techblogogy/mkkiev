@@ -1,0 +1,26 @@
+<script>
+    $(function() {
+        var class_list = [".photogallery-link", ".photogallery_pagination-link"];
+        $(".photogallery-image_main,.photogallery_pagination-link_arrow").click(function() {
+            var href = "";
+            $.each(class_list, function(index, value) {
+                var a = $(value).filter('.js-current');
+                a.removeClass("js-current");
+                a = a.next(value);
+                if(!a.length) {
+                    a = $(value).first();
+                }
+                a.addClass("js-current");
+                href = a.attr("href");
+            });
+            $(".photogallery-image_main").attr("src", href);
+            return false;
+        });
+        class_list = class_list.join();
+        $(class_list).hover(function() {
+            $(".photogallery-image_main").attr("src", $(this).attr("href"));
+            $(class_list).removeClass("js-current").eq($(this).index()).addClass("js-current");
+            return false;
+        }).click(false);
+    });
+</script>

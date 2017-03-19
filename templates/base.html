@@ -1,0 +1,137 @@
+{% load staticfiles menu banners common i18n banneradds_extra %}{% get_current_language as LANGUAGE_CODE %}<!doctype html>
+<html lang="{{ LANGUAGE_CODE }}" prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset="utf-8">
+    <!--[if lt IE 7]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1,requiresActiveX=true"><![endif]-->
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="description" content="{% block description %}{% endblock %}">
+    <meta name="viewport" content="initial-scale=1,user-scalable=yes,width=device-width">
+    <meta name="keywords" content="{% block keywords %}{% endblock %}">
+    <meta name="author" content="{% block author %}{% endblock %}">
+    {% comment %}
+    <meta name="application-name" content="МК-Киев">
+    <meta name="msapplication-tooltip" content="{% block description1 %}{% endblock %}">
+    <meta name="msapplication-starturl" content="http://mkkiev.in.ua/?pinned=true">
+    <meta name="msapplication-window" content="width=1024;height=768">
+    <meta name="msapplication-task" content="name=Task 1;action-uri=http://host/Page1.html;icon-uri=http://host/icon1.ico">
+    <meta name="msapplication-task" content="name=Task 2;action-uri=http://microsoft.com/Page2.html;icon-uri=http://host/icon2.ico">
+    {% endcomment %}
+    {% if noindex %}<meta name="robots" content="noindex">{% endif %}
+    <meta http-equiv="Cache-control" content="no-cache">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="{% url "feed:rss" %}">
+    <link rel="alternate" type="application/atom+xml" title="Atom" href="{% url "feed:atom" %}">
+    <link rel="index" href="/sitemap.xml">
+    <link rel="stylesheet" href="{% static "css/main.css" %}?123ew9uuf">
+    <script src="{% static "js/modernizr-2.6.1-respond-1.1.0.min.js" %}"></script>
+    {% block meta %}{% endblock %}
+</head>
+<body{% block body_attrs %}{% endblock %}>
+{% block top %}{% endblock %}
+<div class="wrapper">
+<div class="wrapper-header"></div>
+<div class="wrapper-content">
+{% block top_banner %}
+    <div class="top_banner banner">
+        {% include "includes/top_banner.html" with src="thy915x70rus.swf" %}
+    </div>
+{% endblock %}
+{% block header %}
+<header class="main_header">
+	<div class="main_header-left">
+		<div class="header_logo">
+            <div class="header_logo-left">{% block header_logo %}<a href="/"><img src="{{ STATIC_URL }}images/LogoMK.jpg" alt="logo" /></a>{% endblock %}</div>
+			<div class="header_logo-right">
+                {% block header_time %}
+                    <div class="header_time">
+                        <time class="header_time-date" datetime="{% show_now "Y-m-d\TH:iO" %}">{% show_now "j E Y" %}</time>
+                        <div class="header_time-week">{% show_now "l" %}</div>
+                        <div class="header_time-tz">{% trans "Киевское время" %}</div>
+                        <div class="header_time-time">{% show_now "H:i" %}</div>
+                    </div>
+                {% endblock %}
+            </div>
+		</div>
+	</div>
+	<div class="main_header-right">
+		<div class="header_banner banner">
+            {% display_banner "ban468" %}
+		</div>
+	</div>
+</header>
+{% endblock %}
+{% block top_menu %}
+<nav class="top_menu">
+	<a class="top_menu-item" href="/politics/">Politika</a>
+	<a class="top_menu-item" href="/agenda/">Gündem</a>
+	<a class="top_menu-item" href="/business/">Ekonomi</a>
+	<a class="top_menu-item" href="/eurasia/">Avrasya</a>
+	<a class="top_menu-item" href="/life/">Yaşam</a>
+	<a class="top_menu-item" href="/culture/">Kültür</a>
+	<a class="top_menu-item" href="/education/">Eğitim</a>
+	<a class="top_menu-item" href="/tourism/">Turizm</a>
+	<a class="top_menu-item" href="/sport/">Spor</a>
+	<a class="top_menu-item" href="/analysis/">Analiz</a>
+	<a class="top_menu-item" href="/interviews/">Röportaj</a>
+	<a class="top_menu-item" href="/blogs/">Köşe Yazıları</a>
+	<a class="top_menu-item" href="/photo-gallery/">Fotoğraf</a>
+	<a class="top_menu-item_last" href="/video-gallery/">Video</a>
+</nav>
+{% endblock %}
+{% block main_banner %}{% endblock %}
+{% block main %}
+<div class="main_content" id="main" role="main">
+    <div class="main_content-left">
+        <div class="main_content-wrap">
+            <div class="main_content-page_wrap">
+                {% block page %}{% endblock %}
+            </div>
+        </div>
+    </div>
+    <aside class="main_content-right">
+        <div class="sidebar">
+            <div class="sidebar-wrap">
+                <noindex>
+                {% block sidebar %}{% endblock %}
+                </noindex>
+            </div>
+        </div>
+    </aside>
+</div><!-- #main-->
+{% endblock %}
+{% block footer %}
+<footer class="main_footer">
+    <div class="main_footer-row">
+        <div class="main_footer-menu">
+            {% block footer_menu %}{% endblock %}
+        </div>
+        {% block footer_center %}{% endblock %}
+        <div class="main_footer-logos">
+            {% block footer_logos %}{% endblock %}
+        </div>
+        <div class="main_footer-counters">
+            {% block footer_counters %}{% endblock %}
+        </div>
+    </div>
+    <div class="main_footer-info">
+        {% block footer_info %}{% endblock %}
+    </div>
+    <div class="main_footer-copyright">
+        {% block footer_copyright %}{% endblock %}
+    </div>
+</footer>
+{% endblock %}
+<!-- Start Banners -->
+{% show_banner "outer-right" %}
+{% show_banner "outer-left" %}
+<!-- End Banners -->
+</div>{# wrapper-content #}
+<div class="wrapper-footer"></div>
+</div>{# wrapper #}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="{% static "js/jquery-1.8.0.min.js" %}"><\/script>')</script>
+{% block scripts %}{% endblock %}
+{% block modal_banner %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,10 @@
+{% if meta %}
+
+{% elif scripts %}
+    <!-- vkontakte.ru -->
+    <script type="text/javascript" src="http://userapi.com/js/api/openapi.js?34"></script>
+    <script type="text/javascript">VK.init({apiId: 2443512, onlyWidgets: true});</script>
+    <script type="text/javascript">VK.Widgets.Comments("vk_comments", {limit: 5, width: "596", attach: "*"});</script>
+{% else %}
+    <div id="vk_comments" class="clearfix"></div><br><br>
+{% endif %}

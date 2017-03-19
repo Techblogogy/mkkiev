@@ -1,0 +1,22 @@
+{% extends "page.html" %}
+{% load common i18n %}
+{% block title %}{% title %}{{ poll.question_text }}{% endtitle %}{% endblock %}
+{% block page %}
+    <section class="list_page"><h1 class="list_page_header">{% trans "Результаты" %}</h1>
+        <div class="article">
+            <article class="article-item">
+                <header class="article_header">
+                    <h2 class="article_header-title">
+                        {{ poll.question_text }}
+                    </h2>
+                </header>
+            </article>
+            <div class="article-content">
+                {% for choice in poll.choice_set.all %}
+                    {{ choice.choice_text }} &mdash; {{ choice.votes_percent }}%<br>
+                {% endfor %}
+                {#<a href="{% url 'polls:detail' poll.id %}">{% trans "Geri" %}</a>#}
+            </div>
+        </div>
+    </section>
+{% endblock %}

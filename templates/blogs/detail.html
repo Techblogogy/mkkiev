@@ -1,0 +1,32 @@
+{% extends "news/detail.html" %}
+{% load news common i18n %}
+{% block page_caption %}
+    <div class="detail_page-caption" xmlns="http://www.w3.org/1999/html">
+        <a class="detail_page-author" rel="author" href="{% url "blogs:author:list" object.author.username %}">
+            {{ object.author }}
+        </a>
+        {% if object.author.location %} | {{ object.author.location }}{% endif %}
+    </div>
+{% endblock %}
+{% block article_header-subtitle %}
+    <div class="detail_page_header-subtitle">
+        <time class="detail_page_header-time" datetime="{{ object.pub_date|date:"Y-m-d\TH:iO" }}" pubdate>
+            {{ object.pub_date|date:"d E Y, H:i" }}
+        </time>
+        | <span class="detail_page_header-author">{{ object.author }}</span>
+        {% show_adminmenu %}
+        {% show_pageviews object.pageviews %}
+    </div>
+{% endblock %}
+{% block page_linked %}
+    {% if author_articles_list %}
+        <div class="linked">
+            <h2 class="linked-title">{% trans "Другие комментарии автора" %}:</h2>
+            {% for object in author_articles_list %}
+                <time class="linked-time">{{ object.pub_date|date:"d.m.Y" }}</time> —
+                <a class="linked-link" href="{{ object.get_absolute_url }}">{{ object.title }}</a>
+                <br>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endblock %}

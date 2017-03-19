@@ -1,0 +1,25 @@
+{% load static %}
+<textarea{{ final_attrs }} style="display:none;">{{ html|safe }}</textarea>
+<table class="wmd" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+        <td class="wmd-panel">
+            <div id="wmd-button-bar"></div>
+            <textarea id="wmd-input" class="wmd-input">{{ md }}</textarea>
+        </td>
+    </tr>
+    <tr>
+        <td class="wmd-panel wmd-preview" id="wmd-preview">{{ html|safe }}</td>
+    </tr>
+</table>
+<br class="clear">
+<div id="file-uploader"></div>
+{% comment %}
+<div class="wmd">
+    <div class="wmd-panel">
+        <div id="wmd-button-bar"></div>
+        <textarea id="wmd-input" class="wmd-input">{{ md }}</textarea>
+    </div>
+    <div class="wmd-panel wmd-preview" id="wmd-preview">{{ html|safe }}</div>
+</div>
+{% endcomment %}
+<script type="text/javascript" src="{% static "pagedown/js/load.js" %}"></script>

@@ -1,0 +1,28 @@
+{% load common i18n %}
+------------------------------------------------------------------------
+{{ subject }}
+------------------------------------------------------------------------
+{% if ads_list %}
+{% trans 'РЕКЛАМА' %}
+------------------------------------------------------------------------
+{% for object in ads_list %}
+{{ object.title|upper|wordwrap:72 }}
+{{ object.content|wordwrap:72 }}
+{{ object.get_absolute_url }}
+{% if not forloop.last %}------------------------------------------------------------------------{% endif %}
+
+{% endfor %}
+{% endif %}
+{% for object in article_list %}
+{{ object.title|upper|wordwrap:72 }}
+------------------------------------------------------------------------
+{{ object.content|striptags|newscut:20|endtext }}
+{{ domain }}{{ object.get_absolute_url }}
+
+{% endfor %}
+------------------------------------------------------------------------
+{% trans 'Подписка: удалить рассылку' %}:
+{% templatetag openvariable %}unsubscribe_link{% templatetag closevariable %}
+{% trans 'Редакция' %}: info@{{ pretty_domain }}
+{#%{% trans 'Реклама в рассылке' %}: sales@{{ pretty_domain }}%#}
+Copyright 2003 — {% now "Y" %} © {{ pretty_domain }}

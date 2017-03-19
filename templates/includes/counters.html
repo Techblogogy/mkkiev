@@ -1,0 +1,51 @@
+{% comment %}
+{% if top %}
+<!--LiveInternet counter--><script type="text/javascript"><!--
+new Image().src = "//counter.yadro.ru/hit;mk?r"+
+escape(document.referrer)+((typeof(screen)=="undefined")?"":
+";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
+";"+Math.random();//--></script><!--/LiveInternet-->
+    <!-- Yandex.Metrika counter -->
+    <div style="display:none;"><script type="text/javascript">
+    (function(w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter8074693 = new Ya.Metrika({id:8074693, enableAll: true});
+            }
+            catch(e) { }
+        });
+    })(window, "yandex_metrika_callbacks");
+    </script></div>
+    <script src="//mc.yandex.ru/metrika/watch.js" type="text/javascript" defer="defer"></script>
+    <noscript><div><img src="//mc.yandex.ru/watch/8074693" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+{% elif icons %}
+
+    <div class="counter">
+        <a href="http://www.alexa.com/siteinfo/mkkiev.in.ua"><script type='text/javascript' src='http://xslt.alexa.com/site_stats/js/s/a?url=mkkiev.in.ua'></script></a>
+    </div>
+    <div class="counter">
+        <!--LiveInternet logo-->
+        <a href="http://www.liveinternet.ru/click;mk"
+        target="_blank"><img src="//counter.yadro.ru/logo;mk?16.3"
+        title="LiveInternet: показано число просмотров за 24 часа, посетителей за 24 часа и за сегодня"
+        alt="" border="0" width="88" height="31"/></a>
+        <!--/LiveInternet-->
+    </div>
+    <div class="counter">
+        <!-- Yandex.Metrika informer -->
+        <a href="http://metrika.yandex.ru/stat/?id=8074693&amp;from=informer"
+        target="_blank" rel="nofollow"><img src="//bs.yandex.ru/informer/8074693/3_0_656963FF_454943FF_1_pageviews"
+        style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" /></a>
+        <!-- /Yandex.Metrika informer -->
+    </div>
+{% else %}
+    <script>
+        var _gaq=[['_setAccount','UA-22323644-2'],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)}(document,'script'));
+    </script>
+{% endif %}
+{% endcomment %}

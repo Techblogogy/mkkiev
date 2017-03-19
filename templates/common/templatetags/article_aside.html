@@ -1,0 +1,13 @@
+{% load image common %}{% spaceless %}
+<aside class="article-aside">
+    <a class="article-aside-link" href="{{ object.get_absolute_url }}">
+        {% image object.image '2' %}
+            <img class="article-aside-image image_size_2" alt="{{ object.title }}" width="{{ width }}" height="{{ height }}" src="{{ src }}">
+        {% endimage %}
+        <div class="article-aside-title">
+            {{ object.title }}
+        </div>
+        {% show_pageviews object.pageviews %}
+    </a>
+</aside>
+{% endspaceless %}

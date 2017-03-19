@@ -1,0 +1,13 @@
+{% if comment_list %}
+<h1>csrf: {% csrf_token %}</h1>
+<dl id="comments" style="border:1px solid black;padding:1em;">
+  {% for comment in comment_list %}
+    <dt id="c{{ comment.id }}">
+        {{ comment.submit_date }} - {{ comment.name }}
+    </dt>
+    <dd>
+        <p>{{ comment.comment }}</p>
+    </dd>
+  {% endfor %}
+</dl>
+{% endif %}
