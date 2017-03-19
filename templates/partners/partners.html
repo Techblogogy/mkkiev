@@ -1,0 +1,5 @@
+<div class="partners">
+    {% for o in objs %}
+        <a href={{o.url}}><img src={{o.image.url}} height={{o.height}} class="partner-image" /></a>
+    {% endfor %}
+</div>
