@@ -1,4 +1,4 @@
-{% load sidebar blogs news subscribes polls banners banneradds_extra %}
+{% load sidebar blogs news subscribes polls banners banneradds_extra partners_module %}
 {% display_banner_square "ban250" %}
 {% include "includes/search.html" %}
 {% show_banner "sidebar" 1 %}
@@ -12,6 +12,7 @@
 {#% show_namaz_times %#}
 {% show_banner "sidebar" 3 "js" %}
 {% show_sidebar_blogs %}
+{% display_partners %}
 {% show_banner "sidebar" 5 "js" %}
 {% show_banner "sidebar" 0 "js" %}
 <script src="http://mkkiev.in.ua/informer/"></script>

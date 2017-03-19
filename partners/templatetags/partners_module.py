@@ -6,6 +6,6 @@ register = template.Library()
 
 
 @register.inclusion_tag('partners/partners.html')
-def display_banner():
+def display_partners():
     res = Partner.objects.all()
     return {'objs': res}
