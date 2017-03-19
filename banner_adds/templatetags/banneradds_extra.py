@@ -16,6 +16,6 @@ def display_banner_square(args):
     return {'obj': res[0]}
 
 @register.inclusion_tag('banner_adds/banner_850x200.html')
-def display_banner_square(args):
+def display_banner_footer(args):
     res = Banneradds.objects.filter(slug=args)
     return {'obj': res[0]}

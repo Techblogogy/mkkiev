@@ -1,38 +1,12 @@
-{% load menu common i18n %}
-{% show_footer_menu %}
-<div class="footer_menu">
-    <h4 class="footer_menu-header">{% trans "Медиа" %}</h4>
-    <ul class="footer_menu-list">
-        <li class="footer_menu-item">
-            <a href="{% url "photogallery:list" %}" class="footer_menu-link">{% trans "Фотогалерея" %}</a>
-        </li>
-    </ul>
-    <ul class="footer_menu-list">
-        <li class="footer_menu-item">
-            <a href="{% url "videogallery:list" %}" class="footer_menu-link">{% trans "Видеогалеря" %}</a>
-        </li>
-    </ul>
-    <ul class="footer_menu-list">
-        <li class="footer_menu-item">
-            <a href="{% url "news:list" %}?tag=caricature" class="footer_menu-link">{% trans "Карикатуры" %}</a>
-        </li>
-    </ul>
+{% load menu common i18n banneradds_extra %}
+<!-- {% show_footer_menu %} -->
+
+<div class="footer_img" style="float:left; width: 88%">
+    {% display_banner_footer "ban800" %}
 </div>
-<div class="footer_menu">
-    <h4 class="footer_menu-header">{% trans "Персоналии" %}</h4>
-    <ul class="footer_menu-list">
-        <li class="footer_menu-item">
-            <a href="{% url "blogs:list" %}" class="footer_menu-link">{% trans "Комментарии" %}</a>
-        </li>
-    </ul>
-    <ul class="footer_menu-list">
-        <li class="footer_menu-item">
-            <a href="/blog/authors/" class="footer_menu-link">{% trans "Авторы" %}</a>
-        </li>
-    </ul>
-</div>
-<div class="footer_menu">
-    <h4 class="footer_menu-header">{% trans "Cтраницы" %}</h4>
+
+<div class="footer_menu" style="float:left; width: 5%; margin-left: 40px">
+    <!-- <h4 class="footer_menu-header">{% trans "Cтраницы" %}</h4> -->
     <ul class="footer_menu-list">
         <li class="footer_menu-item">
             <a href="/about/" class="footer_menu-link">{% trans "О нас" %}</a>
@@ -54,3 +28,5 @@
         </li>
     </ul>
 </div>
+
+<div class="clearfix"></div>
