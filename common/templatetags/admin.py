@@ -22,6 +22,7 @@ def reorder(base_apps):
             'news_newscategory',
             'articles_tag'
         ]),
+        ('pages', []),
         ('blogs', []),
         ('partners', []),
         ('polls', []),
