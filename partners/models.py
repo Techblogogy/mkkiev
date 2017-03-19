@@ -5,7 +5,7 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
 
-class Banneradds(models.Model):
+class Partner(models.Model):
 
     slug = models.CharField(max_length=200)
     url = models.URLField(_('URL'), blank=True, help_text=_(''))

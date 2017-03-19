@@ -8,14 +8,14 @@ from common.signals import invalidate_cache
 
 
 class PartnersConfig(AppConfig):
-    name = 'Partners'
+    name = 'partners'
     verbose_name = _('Partners')
 
     def ready(self):
 
         from djangoapp.admin import admin_site
-        from Partners.models import Partner
-        from Partners.admin import PartnerAdmin
+        from partners.models import Partner
+        from partners.admin import PartnerAdmin
 
         post_save.connect(invalidate_cache, sender=Partner)
         post_delete.connect(invalidate_cache, sender=Partner)

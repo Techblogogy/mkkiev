@@ -23,6 +23,7 @@ def reorder(base_apps):
             'articles_tag'
         ]),
         ('blogs', []),
+        ('partners', []),
         ('polls', []),
         ('banner_adds', []),
         ('banners', []),
