@@ -4,10 +4,13 @@ from __future__ import unicode_literals
 import json
 import codecs
 import urllib2
+import os
 
 from django.core.management.base import BaseCommand, CommandError
 from django.utils import timezone
 from django.utils.translation import ugettext as _
+
+from djangoapp.settings import BASE_DIR
 
 
 class Command(BaseCommand):
@@ -50,7 +53,8 @@ class Command(BaseCommand):
                 raise CommandError('%s Can not parse json data: %s' % (time_now, desc))
 
         try:
-            path = '/var/www/mkkiev/common/templatetags/weather.json'
+            # path = '/var/www/mkkiev/common/templatetags/weather.json'
+            path = os.path.join(BASE_DIR, "common", "templatetags", "weather.json")
             with codecs.open(path, 'w', 'utf-8') as f:
                 f.write(json.dumps(object_list))
         except IOError, e:
