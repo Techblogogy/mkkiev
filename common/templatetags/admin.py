@@ -24,10 +24,10 @@ def reorder(base_apps):
         ]),
         ('pages', []),
         ('blogs', []),
-        ('partners', []),
         ('polls', []),
         ('banner_adds', []),
-        ('banners', []),
+        ('partners', []),
+        # ('banners', []),
         ('registration', [
             'registration_user',
             'auth_group',
