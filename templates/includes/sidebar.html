@@ -1,19 +1,19 @@
 {% load sidebar blogs news subscribes polls banners banneradds_extra partners_module %}
-{% display_banner_square "ban250" %}
+{#% display_banner_square "ban250" %#}
+{% show_banner "sidebar" 1 %}
 {% include "includes/search.html" %}
 {% display_partners %}
-{% show_banner "sidebar" 1 "js" %}
 {% show_currency %}
 {% show_weather %}
-{% show_banner "sidebar" 1 %}
+{#% show_banner "sidebar" 1 %#}
 {% show_popular %}
 {#% show_namaz_umma_ru %#}
 {% show_polls %}
-{% show_slidebox "tureckij-biznes-v-rossii" %}
+{#% show_slidebox "tureckij-biznes-v-rossii" %#}
 {#% show_namaz_times %#}
-{% show_banner "sidebar" 3 "js" %}
+{#% show_banner "sidebar" 3 "js" %#}
 {% show_sidebar_blogs %}
-{% show_banner "sidebar" 5 "js" %}
-{% show_banner "sidebar" 0 "js" %}
+{#% show_banner "sidebar" 5 "js" %#}
+{#% show_banner "sidebar" 0 "js" %#}
 <script src="http://mkkiev.in.ua/informer/"></script>
 {% show_subscribe_form %}
