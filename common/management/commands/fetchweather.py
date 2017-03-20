@@ -16,7 +16,7 @@ class Command(BaseCommand):
     can_import_settings = True
 
     def handle(self, *args, **options):
-        print "Weather"
+        # print "Weather"
         output = []
 
         time_now = timezone.now().strftime("%Y-%m-%d %H:%M")
