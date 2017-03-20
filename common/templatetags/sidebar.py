@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 
 import json
 import codecs
+import os
 
 from django.core.cache import caches, InvalidCacheBackendError
 from django.template import Library
@@ -10,6 +11,8 @@ from django.template.loader import render_to_string
 from django.utils import timezone
 from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext_lazy as _
+
+from djangoapp.settings import BASE_DIR
 
 from articles.models import Article, Tag
 from .namaz_times import ftime, namaz_times
@@ -52,15 +55,18 @@ def show_namaz_umma_ru(context):
 
 @register.simple_tag(takes_context=True)
 def show_weather(context):
+    # print "Weather"
     if 'SECOND_PASS_RENDER' not in context:
         return mark_safe('{% load sidebar %}{% show_weather %}')
     try:
-        path = '/var/www/mkkiev/common/templatetags/weather.json'
+        # path = '/var/www/mkkiev/common/templatetags/weather.json'
+        path = os.path.join(BASE_DIR, "common", "templatetags", "weather.json")
         with codecs.open(path, 'r', 'utf-8') as f:
             json_string = f.read()
         object_list = json.loads(json_string)
     except (IOError, AttributeError):
         object_list = {}
+
     return render_to_string('common/templatetags/weather.html', {'object_list': object_list})
 
 
@@ -69,7 +75,8 @@ def show_currency(context):
     if 'SECOND_PASS_RENDER' not in context:
         return mark_safe('{% load sidebar %}{% show_currency %}')
     try:
-        path = '/var/www/mkkiev/common/templatetags/currency.json'
+        # path = '/var/www/mkkiev/common/templatetags/currency.json'
+        path = os.path.join(BASE_DIR, "common", "templatetags", "currency.json")
         with codecs.open(path, 'r', 'utf-8') as f:
             json_string = f.read()
         object_list = json.loads(json_string)

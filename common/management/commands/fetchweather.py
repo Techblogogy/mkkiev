@@ -16,6 +16,7 @@ class Command(BaseCommand):
     can_import_settings = True
 
     def handle(self, *args, **options):
+        print "Weather"
         output = []
 
         time_now = timezone.now().strftime("%Y-%m-%d %H:%M")
@@ -24,8 +25,8 @@ class Command(BaseCommand):
 
         city_list = (
             (_('Киев'), 'UKKK'),
-            (_('Москва'), 'UUEE'),
-            (_('С.Петербург'), 'ULLI')
+            (_('Львов'), 'UKLL'),
+            (_('Одесса'), 'UKOO')
         )
 
         api_key = '4a3041301633023b'
