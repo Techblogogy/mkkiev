@@ -30,13 +30,19 @@
         background-color: #e4dfe0;
         padding: 0.5em 0.5em;
     }
+
+    .annons-block a {
+        text-decoration: none !important;
+    }
 </style>
 
 <div class="annons-block">
     {% for o in objs %}
         <div class="a-block">
-            <img class="a-img" src="{{o.image.url}}" />
-            <h3 class="a-title">{{o.title}}</h3>
+            <a href="{{o.url}}">
+                <img class="a-img" src="{{o.image.url}}" />
+                <h3 class="a-title">{{o.title}}</h3>
+            </a>
         </div>
     {% endfor %}
 
