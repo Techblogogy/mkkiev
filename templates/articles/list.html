@@ -26,8 +26,8 @@
                                 <h2 class="article_header-title">{{ object.title }}</h2>
                                 {% block article_header-subtitle %}
                                     <div class="article_header-subtitle">
-                                        <time class="article_header-time" datetime="{{ object.pub_date|date:"Y-m-d\TH:iO" }}" pubdate>
-                                            {{ object.pub_date|date:"d E Y, H:i" }}
+                                        <time class="article_header-time" datetime="{{ object.slug_date }}" pubdate>
+                                            {{ object.slug_date }}
                                         </time>
                                         {% if view.category.slug == "news" %} | <span>{{ object.category.name }}</span>{% endif %}
                                         {% show_adminmenu %}

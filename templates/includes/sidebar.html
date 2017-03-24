@@ -1,4 +1,4 @@
-{% load sidebar blogs news subscribes polls banners banneradds_extra partners_module %}
+{% load sidebar blogs news subscribes polls banners banneradds_extra partners_module s_calendar %}
 {#% display_banner_square "ban250" %#}
 {% show_banner "sidebar" 1 %}
 {% include "includes/search.html" %}
@@ -7,6 +7,7 @@
 {% show_weather %}
 {#% show_banner "sidebar" 1 %#}
 {% show_popular %}
+{% display_calendar %}
 {#% show_namaz_umma_ru %#}
 {% show_polls %}
 {#% show_slidebox "tureckij-biznes-v-rossii" %#}

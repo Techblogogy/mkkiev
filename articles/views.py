@@ -66,7 +66,7 @@ class BaseListView(generic.list.BaseListView):
 
 class DayArchiveView(generic.DayArchiveView, BaseListView):
     template_name = 'articles/list.html'
-    date_field = 'pub_date'
+    date_field = 'slug_date'
     month_format = '%m'
 
 

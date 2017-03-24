@@ -1,0 +1,79 @@
+<style>
+    .archive {
+        width: 100%;
+    }
+    .archive-header {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .archive-header a {
+        text-decoration: none;
+    }
+    .archive-header-item {
+        padding: 10px;
+        background-color: #ddd;
+        color: #666!important;
+        text-decoration: none;
+        font-size: 1.1em;
+        font-weight: bold;
+    }
+    .archive-header-item:hover {
+        background-color: #94AAB3;
+    }
+    .archive-header-current {
+        padding: 10px;
+        background-color: #94AAB3;
+        color: #fff!important;
+        text-decoration: none;
+        font-size: 1.1em;
+        font-weight: bold;
+    }
+    .archive-left {padding-right:10px;}
+    .archive-right {padding-left:10px;}
+    .archive-month {
+        border: 1px #ccc solid;
+        border-collapse:collapse;
+        width: 100%;
+    }
+    .archive-month td, .archive-month th {border: 1px #ccc solid;padding:5px;text-align: center;}
+    .archive-month th {background-color: #ccc;}
+    .archive-month-header {text-align: center;margin:5px 0;}
+    .archive-month-header a {text-decoration: none;}
+    .archive-month a {text-decoration: none;}
+</style>
+
+<table class="archive">
+    {% for row in calendar %}
+        <tr>
+            {% for month in row %}
+                <td class="archive-{% cycle "left" "right" %}">
+                    <h3 class="archive-month-header"><a href="{% url "news:month_list" current_year month.1.0.1|date:"m" %}">{{ month.1.0.1|date:"F" }}</a></h3>
+                    <table class="archive-month">
+                        <tr>
+                            {% for week in week_list %}
+                                <th>{{ week|date:"D" }}</th>
+                            {% endfor %}
+                        </tr>
+                        {% for week in month %}
+                            <tr>
+                                {% for flag, day in week %}
+                                    <td>
+                                    {% if flag %}
+                                        {% if day %}
+                                            <a href="{% url "news:day_list" day|date:"Y" day|date:"m" day|date:"d" %}">
+                                                {{ day.day }}
+                                            </a>
+                                        {% endif %}
+                                    {% else %}
+                                        {{ day.day }}
+                                    {% endif %}
+                                    </td>
+                                {% endfor %}
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+</table>

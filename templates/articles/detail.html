@@ -7,8 +7,8 @@
         <h1 class="detail_page_header-title">{{ object.title }}</h1>
         {% block article_header-subtitle %}
             <div class="detail_page_header-subtitle">
-                <time class="detail_page_header-time" datetime="{{ object.pub_date|date:"Y-m-d\TH:iO" }}" pubdate>
-                    {{ object.pub_date|date:"d E Y, H:i" }}
+                <time class="article_header-time" datetime="{{ object.slug_date }}" pubdate>
+                    {{ object.slug_date }}
                 </time>
                 {% show_adminmenu %}
                 {% show_pageviews object.pageviews %}
