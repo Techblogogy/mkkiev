@@ -1,8 +1,9 @@
-{% load menu common i18n banneradds_extra %}
+{% load menu common i18n banneradds_extra banners %}
 <!-- {% show_footer_menu %} -->
 
 <div class="footer_img" style="float:left; width: 88%">
-    {% display_banner_footer "ban800" %}
+    {#% display_banner_footer "ban800" %#}
+    {% show_banner_extra "ads_footer" %}
 </div>
 
 <div class="footer_menu" style="float:left; width: 5%; margin-left: 40px; margin-top: 20px">
