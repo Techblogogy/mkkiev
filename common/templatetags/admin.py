@@ -28,6 +28,7 @@ def reorder(base_apps):
         ('banner_adds', []),
         ('partners', []),
         ('banners', []),
+        ('annons', []),
         ('registration', [
             'registration_user',
             'auth_group',

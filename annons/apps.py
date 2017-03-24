@@ -8,20 +8,17 @@ from common.signals import invalidate_cache
 
 
 class AnnonsConfig(AppConfig):
-    name = 'banner_adds'
-    verbose_name = _('Banners')
+    name = 'annons'
+    verbose_name = _('Annons')
 
     def ready(self):
 
         from djangoapp.admin import admin_site
-        from banner_adds.models import Banneradds
-        from banner_adds.admin import BanneraddsAdmin
+        from annons.models import Annons
+        from annons.admin import AnnonsAdmin
 
-        post_save.connect(invalidate_cache, sender=Banneradds)
-        post_delete.connect(invalidate_cache, sender=Banneradds)
-        m2m_changed.connect(invalidate_cache, sender=Banneradds)
+        post_save.connect(invalidate_cache, sender=Annons)
+        post_delete.connect(invalidate_cache, sender=Annons)
+        m2m_changed.connect(invalidate_cache, sender=Annons)
 
-        admin_site.register(Banneradds, BanneraddsAdmin)
-
-        from banner_adds.views import render_banners
-        render_banners()
+        admin_site.register(Annons, AnnonsAdmin)

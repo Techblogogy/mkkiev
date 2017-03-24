@@ -1,0 +1,36 @@
+<style>
+    .annons-block {
+        width: 100%
+
+        background-color: #b7b5b6;
+    }
+
+    .annons-block .a-block {
+        width: 180px;
+        height: 150px;
+
+        float: left;
+
+        margin-left: 1.1em;
+        margin-right: 1.1em;
+    }
+    /*.annons-block .a-block:last-child {
+        margin-right: 0;
+    }*/
+
+    .annons-block .a-img {
+        width: 180px;
+        height: 150px;
+    }
+</style>
+
+<div class="annons-block">
+    {% for o in objs %}
+        <div class="a-block">
+            <img class="a-img" src="{{o.image.url}}" />
+            <h2 class="a-title">{{o.title}}</h2>
+        </div>
+    {% endfor %}
+
+    <div class="clearfix"></div>
+</div>

@@ -182,6 +182,7 @@ INSTALLED_APPS = (
     'videogallery',
     'informers',
     'banners',
+    'annons',
     'banner_adds',
     'partners',
     'subscribes',

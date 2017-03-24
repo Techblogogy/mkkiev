@@ -1,5 +1,5 @@
 ﻿{% extends "layout.html" %}
-{% load sidebar news headlines subscribes blogs menu banners %}
+{% load sidebar news headlines subscribes blogs menu banners annons_block %}
 {% block title %}Новости Киева и Украины{% endblock %}
 {% block main_banner %}{% show_banner 'main' 1 %}{% endblock %}
 {% block page %}
@@ -21,6 +21,8 @@
     {% show_banner 'content' 1 %}
     {#% show_news 'daynews' %#}
 	{% show_banner 'content' %}
+
+	{% display_block %}
 
 	<!-- <div class="3-block">
 
