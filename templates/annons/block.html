@@ -37,14 +37,20 @@
 </style>
 
 <div class="annons-block">
-    {% for o in objs %}
-        <div class="a-block">
-            <a href="{{o.url}}">
-                <img class="a-img" src="{{o.image.url}}" />
-                <h3 class="a-title">{{o.title}}</h3>
-            </a>
-        </div>
-    {% endfor %}
+    <div class="a-block-items">
+        {% for o in objs %}
+            {% if forloop.counter <= 3 %}
+                <div class="a-block">
+            {% else %}
+                <div class="a-block" style="display: none">
+            {% endif %}
+                <a href="{{o.url}}">
+                    <img class="a-img" src="{{o.image.url}}" />
+                    <h3 class="a-title">{{o.title}}</h3>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
 
     <div class="clearfix"></div>
 </div>
