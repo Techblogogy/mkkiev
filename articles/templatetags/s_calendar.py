@@ -8,6 +8,10 @@ import datetime
 
 import pprint
 
+from calendar import HTMLCalendar
+from datetime import date
+from itertools import groupby
+
 
 @register.inclusion_tag("articles/calendar.html")
 def display_calendar():
@@ -18,9 +22,11 @@ def display_calendar():
     pub = Article.objects.all().values()
 
     # pp = pprint.PrettyPrinter(indent=4)
-    print(pub)
+    # print(pub)
     # for i in pub:
     #     print i.slug_date
+
+    # year_now = datetime.datetime.now()
 
     # Get unique years
     years = []
@@ -33,7 +39,7 @@ def display_calendar():
     today = datetime.date.today()
     try:
         # year = int(self.kwargs['year'])
-        year = 2017
+        year = today.year #2017
         if year not in years:
             year = today.year
     except (KeyError, ValueError):
@@ -66,6 +72,6 @@ def display_calendar():
     context['calendar'] = calendar_list
     context['week_list'] = [datetime.date(year=2012, month=1, day=day) for day in range(2, 9)]
 
-    # print(context)
+    print(context)
 
     return context
