@@ -1,5 +1,5 @@
-$(function () {
-    $('.js-banner').click(function () {
+$(function() {
+    $('.js-banner').click(function() {
         var id = $(this).attr('id');
         if (id) {
             $.get('/banners/click/' + id + '/');
@@ -7,8 +7,8 @@ $(function () {
         return true;
     });
 
-    (function () {
-        $('.js-change_banner').each(function () {
+    (function() {
+        $('.js-change_banner').each(function() {
             var b_banner = $(this).children();
             var b_banner_count = b_banner.length;
             var b_duration = 10000;
@@ -41,8 +41,8 @@ $(function () {
         });
     })();
 
-    (function () {
-        $('.a-block-items').each(function () {
+    (function() {
+        $('.a-block-items').each(function() {
             var b_banner = $(this).children();
 
             var b_banner_count = b_banner.length;
@@ -59,10 +59,10 @@ $(function () {
 
             function b_animate() {
 
-                for (var i=0; i<b_current.length; i++){
+                for (var i = 0; i < b_current.length; i++) {
                     b_current[i].css('display', 'none')
 
-                    for (var y=0; y<3; y++) {
+                    for (var y = 0; y < 3; y++) {
                         b_next = b_current[i].next();
                         b_current[i] = (b_next.length ? b_next : b_banner.eq(0));
                     }
@@ -76,6 +76,27 @@ $(function () {
                 b_do_slider = setInterval(b_animate, b_duration);
             }
         });
+    })();
+
+    (function() {
+
+        function tick() {
+            var currentTime = new Date();
+            var currentHours = currentTime.getHours();
+            var currentMinutes = currentTime.getMinutes();
+            var currentSeconds = currentTime.getSeconds();
+
+            currentMinutes = (currentMinutes < 10 ? "0" : "") + currentMinutes;
+            currentSeconds = (currentSeconds < 10 ? "0" : "") + currentSeconds;
+
+            var currentTimeString = currentHours + ":" + currentMinutes;
+
+
+            $("#header-time").html(currentTimeString);
+        }
+
+        setInterval(tick, 60000);
+
     })();
 
 });

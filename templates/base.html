@@ -48,7 +48,11 @@
                         <time class="header_time-date" datetime="{% show_now "Y-m-d\TH:iO" %}">{% show_now "j E Y" %}</time>
                         <div class="header_time-week">{% show_now "l" %}</div>
                         <div class="header_time-tz">{% trans "Киевское время" %}</div>
-                        <div class="header_time-time">{% show_now "H:i" %}</div>
+                        <div class="header_time-time" id="header-time">{% show_now "H:i" %}</div>
+
+                        <!-- <script>
+
+                        </script> -->
                     </div>
                 {% endblock %}
             </div>
