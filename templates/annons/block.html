@@ -1,13 +1,15 @@
 <style>
     .annons-block {
-        width: 100%
+        width: 100%;
 
         background-color: #b7b5b6;
+
+        padding: 1.1em 0;
     }
 
     .annons-block .a-block {
         width: 180px;
-        height: 150px;
+        /*height: 150px;*/
 
         float: left;
 
@@ -22,13 +24,19 @@
         width: 180px;
         height: 150px;
     }
+
+    .annons-block .a-title {
+        border-top: 3px solid #b7b5b6;
+        background-color: #e4dfe0;
+        padding: 0.5em 0.5em;
+    }
 </style>
 
 <div class="annons-block">
     {% for o in objs %}
         <div class="a-block">
             <img class="a-img" src="{{o.image.url}}" />
-            <h2 class="a-title">{{o.title}}</h2>
+            <h3 class="a-title">{{o.title}}</h3>
         </div>
     {% endfor %}
 
