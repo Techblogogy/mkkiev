@@ -10,7 +10,7 @@ from django.views.decorators.csrf import csrf_protect
 
 from pages.models import Page
 
-DEFAULT_TEMPLATE = 'pages/default.html'
+DEFAULT_TEMPLATE = 'page.html'
 
 
 # This view is called from FlatpageFallbackMiddleware.process_response

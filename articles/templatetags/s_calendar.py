@@ -19,7 +19,8 @@ def display_calendar():
     # context = super(ArchiveView, self).get_context_data(**kwargs)
     # Get all unique dates from articles
     dates = Article.objects.values_list('slug_date', flat=True).order_by('slug_date')#.distinct()
-    pub = Article.objects.all().values()
+    # pub = Article.objects.all().values()
+    print(dates)
 
     # pp = pprint.PrettyPrinter(indent=4)
     # print(pub)
@@ -72,6 +73,5 @@ def display_calendar():
     context['calendar'] = calendar_list
     context['week_list'] = [datetime.date(year=2012, month=1, day=day) for day in range(2, 9)]
 
-    print(context)
 
     return context

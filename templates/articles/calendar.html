@@ -8,9 +8,9 @@
     }
 
 
-    .archive {
+    /*.archive {
         width: 100%;
-    }
+    }*/
     .archive-header {
         text-align: center;
         margin-bottom: 20px;
@@ -44,7 +44,8 @@
         border-collapse:collapse;
         width: 100%;
     }
-    .archive-month td, .archive-month th {border: 1px #ccc solid;padding:5px;text-align: center;}
+    .archive-month td, .archive-month th {border: 1px white solid; background-color: #f2f2f2; padding:5px;text-align: center;}
+    .archive-month .active {background-color: #f7dbdb; }
     .archive-month th {background-color: #ccc;}
     .archive-month-header {text-align: center;margin:5px 0;}
     .archive-month-header a {text-decoration: none;}
@@ -58,7 +59,7 @@
             <tr>
                 {% for month in row %}
                     <td class="archive-{% cycle "left" "right" %}">
-                        <h3 class="archive-month-header"><a href="{% url "news:month_list" current_year month.1.0.1|date:"m" %}">{{ month.1.0.1|date:"F" }}</a></h3>
+                        <h3 class="archive-month-header"><a href="{% url "news:month_list" current_year month.1.0.1|date:"m" %}">{{ month.1.0.1|date:"F Y" }}</a></h3>
                         <table class="archive-month">
                             <tr>
                                 {% for week in week_list %}
