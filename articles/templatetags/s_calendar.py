@@ -30,7 +30,7 @@ class ArchiveCalendar(HTMLCalendar):
             if date(self.year, self.month, day) in self.dates:
                 cssclass += ' active'
 
-                link = '<a href="#">%d</a>' % (day)
+                link = '<a href="/news/%04d/%02d/%02d/">%d</a>' % (self.year, self.month, day, day)
                 return self.day_cell(cssclass, '<div class="dayNumber">%s</div>' % link)
             return self.day_cell(cssclass, '<div class="dayNumber">%d</div>' % day)
 
@@ -53,12 +53,9 @@ def add_months(sourcedate,months):
 @register.inclusion_tag("articles/calendar.html")
 def display_calendar():
     context = {}
-    # context = super(ArchiveView, self).get_context_data(**kwargs)
+
     # Get all unique dates from articles
     dates = Article.objects.values_list('slug_date', flat=True).order_by('slug_date').distinct()
-
-    # print (min(dates))
-    # print (max(dates))
 
     d_min = min(dates)
     d_max = max(dates)
@@ -78,61 +75,7 @@ def display_calendar():
 
         d_min = add_months(d_min, 1)
 
-    print cals
+    # print cals
 
 
-
-    # year_now = datetime.datetime.now()
-
-    # # Get unique years
-    # years = []
-    # for date in dates:
-    #     year = date.year
-    #     if year not in years:
-    #         years.append(year)
-    # context['years'] = years
-
-    # # Filter calendar
-    # today = datetime.date.today()
-    # try:
-    #     # year = int(self.kwargs['year'])
-    #     year = today.year
-    #     if year not in years:
-    #         year = today.year
-    # except (KeyError, ValueError):
-    #     year = today.year
-    # context['current_year'] = year
-    # current = True
-    # switch = False
-    # calendar_list = []
-    # for row in calendar.Calendar().yeardatescalendar(year, 2):
-    #     rows = []
-    #     for month in row:
-    #         months = []
-    #         first = True
-    #         for week in month:
-    #             weeks = []
-    #             for date in week:
-    #                 if date > today:
-    #                     current = False
-    #                 if date.day == 1 and not first:
-    #                     switch = not switch
-    #                 if not switch:
-    #                     date = False
-    #                 show_date = date in dates and current
-    #                 weeks.append((show_date, date))
-    #                 first = False
-    #             months.append(weeks)
-    #         rows.append(months)
-    #     if current:
-    #         calendar_list.append(rows)
-    # context['calendar'] = calendar_list
-    # context['week_list'] = [datetime.date(year=2012, month=1, day=day) for day in range(2, 9)]
-
-    # print(context)
-
-    # pp = pprint.PrettyPrinter(indent=4)
-    # pp.pprint(calendar.Calendar().yeardatescalendar(year, 1))
-
-
-    return {"calendar": cals}
+    return {"cals": cals}
