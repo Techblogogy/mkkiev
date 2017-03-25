@@ -26,14 +26,9 @@ class ArchiveCalendar(HTMLCalendar):
         if day != 0:
             cssclass = self.cssclasses[weekday]
 
-            print date(self.year, self.month, day)
+            # print date(self.year, self.month, day)
             if date(self.year, self.month, day) in self.dates:
                 cssclass += ' active'
-                # body = ["<a href='#'>n</a>"]
-                # for contest in self.contest_events[day]:
-                #     body.append('<a href="%s">' % contest.get_absolute_url())
-                #     body.append(esc(contest.contest.name))
-                #     body.append('</a><br/>')
 
                 link = '<a href="#">%d</a>' % (day)
                 return self.day_cell(cssclass, '<div class="dayNumber">%s</div>' % link)
@@ -48,6 +43,12 @@ class ArchiveCalendar(HTMLCalendar):
     def day_cell(self, cssclass, body):
         return '<td class="%s">%s</td>' % (cssclass, body)
 
+def add_months(sourcedate,months):
+    month = sourcedate.month - 1 + months
+    year = int(sourcedate.year + month / 12 )
+    month = month % 12 + 1
+    day = min(sourcedate.day,calendar.monthrange(year,month)[1])
+    return datetime.date(year,month,day)
 
 @register.inclusion_tag("articles/calendar.html")
 def display_calendar():
@@ -56,15 +57,29 @@ def display_calendar():
     # Get all unique dates from articles
     dates = Article.objects.values_list('slug_date', flat=True).order_by('slug_date').distinct()
 
-    def group_by_day(readings):
-        field = lambda reading: reading.day
-        return dict(
-            [(day, list(items)) for day, items in groupby(readings, field)]
-        )
+    # print (min(dates))
+    # print (max(dates))
 
-    print(dates[0])
-    d = group_by_day(dates)
-    lCalendar = ArchiveCalendar(dates).formatmonth(2017, 3)
+    d_min = min(dates)
+    d_max = max(dates)
+    today = datetime.date.today()
+
+    cals = []
+
+    while d_min <= d_max:
+        print d_min.year, d_min.month
+
+        cal = ArchiveCalendar(dates).formatmonth(d_min.year, d_min.month)
+
+        if today.month == d_min.month and today.year == d_min.year:
+            cals.insert(0, mark_safe(cal))
+        else:
+            cals.append(mark_safe(cal))
+
+        d_min = add_months(d_min, 1)
+
+    print cals
+
 
 
     # year_now = datetime.datetime.now()
@@ -120,4 +135,4 @@ def display_calendar():
     # pp.pprint(calendar.Calendar().yeardatescalendar(year, 1))
 
 
-    return {"calendar": mark_safe(lCalendar)}
+    return {"calendar": cals}
