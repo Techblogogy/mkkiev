@@ -38,10 +38,26 @@ class ArchiveCalendar(HTMLCalendar):
 
     def formatmonth(self, year, month):
         self.year, self.month = year, month
-        return super(ArchiveCalendar, self).formatmonth(year, month)
+        # return super(ArchiveCalendar, self).formatmonth(year, month)
+
+        v = []
+        a = v.append
+        a('<table class="archive-month">')
+        a('\n')
+        a(self.formatmonthname(year, month, withyear=True))
+        a('\n')
+        a(self.formatweekheader())
+        a('\n')
+        for week in self.monthdays2calendar(year, month):
+            a(self.formatweek(week))
+            a('\n')
+        a('</table>')
+        a('\n')
+        return ''.join(v)
 
     def day_cell(self, cssclass, body):
         return '<td class="%s">%s</td>' % (cssclass, body)
+
 
 def add_months(sourcedate,months):
     month = sourcedate.month - 1 + months

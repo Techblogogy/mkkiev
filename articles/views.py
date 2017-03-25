@@ -143,4 +143,7 @@ class ArchiveView(TemplateView):
                 calendar_list.append(rows)
         context['calendar'] = calendar_list
         context['week_list'] = [datetime.date(year=2012, month=1, day=day) for day in range(2, 9)]
+
+        print context['week_list']
+
         return context
