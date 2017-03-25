@@ -11,14 +11,14 @@ import datetime
 
 import pprint
 
-from calendar import HTMLCalendar, monthrange
+from calendar import LocaleHTMLCalendar, monthrange
 from datetime import date
 from itertools import groupby
 
-class ArchiveCalendar(HTMLCalendar):
+class ArchiveCalendar(LocaleHTMLCalendar):
 
     def __init__(self, dates):
-        super(ArchiveCalendar, self).__init__()
+        super(ArchiveCalendar, self).__init__(locale='ru_RU')
         self.dates = dates
 
     def formatday(self, day, weekday):
@@ -72,6 +72,9 @@ def display_calendar():
 
     # Get all unique dates from articles
     dates = Article.objects.values_list('slug_date', flat=True).order_by('slug_date').distinct()
+
+
+
 
     d_min = min(dates)
     d_max = max(dates)
