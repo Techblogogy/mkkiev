@@ -54,43 +54,9 @@
 
 <div class="calendar-block">
 
-    <table class="archive">
-        {% for row in calendar %}
-            <tr>
-                {% for month in row %}
-                    <td class="archive-{% cycle "left" "right" %}">
-                        <h3 class="archive-month-header"><a href="{% url "news:month_list" current_year month.1.0.1|date:"m" %}">{{ month.1.0.1|date:"F Y" }}</a></h3>
-                        <table class="archive-month">
-                            <tr>
-                                {% for week in week_list %}
-                                    <th>{{ week|date:"D" }}</th>
-                                {% endfor %}
-                            </tr>
-                            {% for week in month %}
-                                <tr>
-                                    {% for flag, day in week %}
-                                        {% if flag %}
-                                            {% if day %}
-                                                <td class="active">
-                                                    <a href="{% url "news:day_list" day|date:"Y" day|date:"m" day|date:"d" %}">
-                                                        {{ day.day }}
-                                                    </a>
-                                                </td>
-                                            {% endif %}
-                                        {% else %}
-                                            <td>
-                                                {{ day.day }}
-                                            </td>
-                                        {% endif %}
-                                    {% endfor %}
-                                </tr>
-                            {% endfor %}
-                        </table>
-                    </td>
-                {% endfor %}
-            </tr>
-        {% endfor %}
-    </table>
+
+
+    {{calendar}}
 
 
 </div>
