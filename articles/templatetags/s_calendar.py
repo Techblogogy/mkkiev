@@ -88,9 +88,10 @@ def display_calendar():
         cal = ArchiveCalendar(dates).formatmonth(d_min.year, d_min.month)
 
         if today.month == d_min.month and today.year == d_min.year:
-            cals.insert(0, mark_safe(cal))
+            cals.append({"dat": mark_safe(cal), "display": "block"})
         else:
-            cals.append(mark_safe(cal))
+            cals.append({"dat": mark_safe(cal), "display": "none"})
+        # cals.append(mark_safe(cal))
 
         d_min = add_months(d_min, 1)
 

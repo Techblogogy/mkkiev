@@ -54,11 +54,21 @@
 
 <div class="calendar-block">
 
-    {% for c in cals %}
-        <div class="archive">
-            {{c}}
-        </div>
-    {% endfor %}
+    <div class="archive-nav">
+        <button id="prev-cal" class="archive-btn"><</button>
+        <button id="next-cal" class="archive-btn">></button>
+    </div>
+
+    <div class="archives">
+
+        {% for c in cals %}
+            <div class="archive-ctr" style="display: {{ c.display }}">
+                {{c.dat}}
+            </div>
+        {% endfor %}
+        
+    </div>
+
 
 
 

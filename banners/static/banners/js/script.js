@@ -41,6 +41,7 @@ $(function() {
         });
     })();
 
+    //
     (function() {
         $('.a-block-items').each(function() {
             var b_banner = $(this).children();
@@ -78,6 +79,7 @@ $(function() {
         });
     })();
 
+    // Live Ticking Clock
     (function() {
 
         function tick() {
@@ -96,6 +98,30 @@ $(function() {
         }
 
         setInterval(tick, 60000);
+
+    })();
+
+    (function() {
+
+        $('#next-cal').click(function () {
+            $(".archive-ctr:visible").each(function () {
+                var prev = $(this).next();
+                if (prev.length != 0) {
+                    $(this).css("display", 'none');
+                    prev.css("display", 'block');
+                }
+            });
+        });
+
+        $('#prev-cal').click(function () {
+            $(".archive-ctr:visible").each(function () {
+                var prev = $(this).prev();
+                if (prev.length != 0) {
+                    $(this).css("display", 'none');
+                    prev.css("display", 'block');
+                }
+            });
+        });
 
     })();
 
