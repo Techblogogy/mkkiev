@@ -183,7 +183,6 @@ INSTALLED_APPS = (
     'informers',
     'banners',
     'annons',
-    'banner_adds',
     'partners',
     'subscribes',
     'menu',
