@@ -1,3 +1,4 @@
+# coding: utf-8
 from __future__ import unicode_literals
 
 from django.apps import AppConfig
@@ -9,7 +10,7 @@ from common.signals import invalidate_cache
 
 class AnnonsConfig(AppConfig):
     name = 'annons'
-    verbose_name = _('Annons')
+    verbose_name = _('Анонсы')
 
     def ready(self):
 
