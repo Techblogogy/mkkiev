@@ -1,3 +1,5 @@
+# coding: utf-8
+
 from __future__ import unicode_literals
 
 from django.apps import AppConfig
@@ -9,7 +11,7 @@ from common.signals import invalidate_cache
 
 class PartnersConfig(AppConfig):
     name = 'partners'
-    verbose_name = _('Partners')
+    verbose_name = _('Партнеры')
 
     def ready(self):
 

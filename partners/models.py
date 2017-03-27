@@ -1,3 +1,4 @@
+# coding: utf-8
 from __future__ import unicode_literals
 
 from django.db import models
@@ -15,3 +16,7 @@ class Partner(models.Model):
 
     def publish(self):
         self.save()
+
+    class Meta:
+        verbose_name = _('Партнер')
+        verbose_name_plural = _('Партнеры')
