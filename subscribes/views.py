@@ -20,6 +20,7 @@ from django.conf import settings
 from django.views.generic import TemplateView
 from django.views.generic.list import ListView
 from django.utils.translation import ugettext as _
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 
 from subscribes.models import Subscribe
 from subscribes.forms import SubscribeForm
@@ -36,7 +37,8 @@ class SubscribeView(TemplateView):
 
     def get(self, request, *args, **kwargs):
         email = request.GET.get('e', '')
-        token = request.GET.get('t', '')
+        token = urlsafe_base64_decode(request.GET.get('t', ''))
+        print token
         if email and token:
             token1 = self.make_token(settings.SECRET_KEY, email)
             is_unsubscribe = request.GET.get('d', False)
@@ -71,10 +73,12 @@ class SubscribeView(TemplateView):
         if form.is_valid():
             email = form.cleaned_data['email']
             domain = add_domain(SITE_DOMAIN_NAME, '', request.is_secure())
-            token = self.make_token(settings.SECRET_KEY, email)
+            token = urlsafe_base64_encode(self.make_token(settings.SECRET_KEY, email))
             pretty_domain = domain.replace('http://', '').replace('https://', '').replace('//', '')
             from_email_name = getattr(settings, 'SUBSCRIBES_FROM_EMAIL_NAME', 'no-reply')
-            from_email = '%s@%s' % (from_email_name, pretty_domain)
+            # from_email = '%s@%s' % (from_email_name, pretty_domain)
+            # print from_email
+            from_email = "fedorbobylev@fabricator.me"
             subject = _('Подтверждение подписки для %s' % pretty_domain)
             url = '%s%s?t=%s&e=%s' % (domain, reverse('subscribes-index'), token, email)
             text_message = '%s:\n\n%s\n\n--\n%s' % (_('Скопируйте ссылку в браузер.'), url, domain)
@@ -88,6 +92,7 @@ class SubscribeView(TemplateView):
                 messages.success(request, _('На ваш почтовый адрес выслано подтверждение подписки.<br>Проверьте ваш почтовый ящик'))
             except SMTPException:
                 messages.error(request, _('Ошибка в отправке подтверждения подписки на ваш почтовый адрес'))
+                raise
             finally:
                 connection.close()
         else:

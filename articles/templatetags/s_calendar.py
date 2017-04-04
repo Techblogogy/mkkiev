@@ -18,7 +18,8 @@ from itertools import groupby
 class ArchiveCalendar(LocaleHTMLCalendar):
 
     def __init__(self, dates):
-        super(ArchiveCalendar, self).__init__(locale='ru_RU')
+        # super(ArchiveCalendar, self).__init__(locale="ru_RU.utf8")
+        super(ArchiveCalendar, self).__init__()
         self.dates = dates
 
     def formatday(self, day, weekday):
@@ -73,27 +74,29 @@ def display_calendar():
     # Get all unique dates from articles
     dates = Article.objects.values_list('slug_date', flat=True).order_by('slug_date').distinct()
 
-
-
-
     d_min = min(dates)
     d_max = max(dates)
     today = datetime.date.today()
 
     cals = []
 
-    while d_min <= d_max:
-        print d_min.year, d_min.month
+    today_t = False
+    while d_min.month <= d_max.month:
+        # print d_min.year, d_min.month
 
         cal = ArchiveCalendar(dates).formatmonth(d_min.year, d_min.month)
 
         if today.month == d_min.month and today.year == d_min.year:
             cals.append({"dat": mark_safe(cal), "display": "block"})
+            today_t = True
         else:
             cals.append({"dat": mark_safe(cal), "display": "none"})
         # cals.append(mark_safe(cal))
 
         d_min = add_months(d_min, 1)
+
+    if not today_t:
+        cals[len(cals)-1]['display'] = "block"
 
     # print cals
 

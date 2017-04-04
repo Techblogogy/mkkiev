@@ -171,6 +171,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin.apps.SimpleAdminConfig',
     'django.contrib.sitemaps',
+    # 'django.contrib.sites.models',
     'common',
     'registration',
     'pagedown',
@@ -190,15 +191,18 @@ INSTALLED_APPS = (
     'pages',
 )
 
-EMAIL_HOST = 'localhost'
-EMAIL_HOST_USER = 'info@mkkiev.in.ua'
-EMAIL_PORT = 25
+EMAIL_HOST = 'mk.kiev.ua'
+EMAIL_HOST_USER = 'test@mk.kiev.ua'
+# EMAIL_PORT = 25
 EMAIL_SUBJECT_PREFIX = '[mkkiev.ua] '
-#EMAIL_PORT = '587'
-#EMAIL_HOST_PASSWORD = ''
-#EMAIL_USE_TLS = 1
-#EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
-#EMAIL_FILE_PATH = rel('log')
+EMAIL_PORT = 587
+EMAIL_HOST_PASSWORD = ''
+EMAIL_USE_TLS = 1
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+# EMAIL_FILE_PATH = rel('log')
+
+SUBSCRIBES_FROM_EMAIL_NAME="fedorbobylev"
 
 AUTH_USER_MODEL = 'registration.User'
 

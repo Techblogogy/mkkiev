@@ -65,10 +65,10 @@ class Command(BaseCommand):
                     'code': j['ccy'],
                     'nominal': 1,
                     'name': "",
-                    'value': j['buy'] 
+                    'value': j['buy']
                 })
 
-        print object_list
+        # print object_list
 
         if object_list:
             # uah = .0

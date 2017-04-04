@@ -13,7 +13,7 @@ from django.template.loader import get_template
 from django.template import Context, Template, TemplateDoesNotExist
 from django.contrib.syndication.views import add_domain
 from django.conf import settings
-from django.contrib.sites.models import Site
+# from django.contrib.sites.models import Site
 from django.utils import timezone
 from django.utils.translation import ugettext as _
 
@@ -41,19 +41,22 @@ class Command(BaseCommand):
         except Article.DoesNotExist:
             raise CommandError('%s Articles does not exist' % time_now)
 
-        current_site = Site.objects.get_current()
-        domain = add_domain(current_site.domain, '', False)
+        # current_site = Site.objects.get_current()
+        # domain = add_domain(current_site.domain, '', False)
+        domain = "http://127.0.0.1:8000/"
         pretty_domain = domain.replace('http://', '').replace('https://', '').replace('//', '').replace('www', '')
-
+        #
         from_email = '%s <%s@%s>' % (pretty_from_email_name, from_email_name, pretty_domain)
-        
+        # print from_email
+        from_email = "fedorbobylev@fabricator.me"
+
         c = Context({
             'article_list': articles,
             'subject': subject,
             'domain': domain,
             'pretty_domain': pretty_domain
         })
-        
+
         messages = []
         for template_name in ('subscribes/email.txt', 'subscribes/email.html'):
             try:
@@ -65,7 +68,8 @@ class Command(BaseCommand):
             messages.append(t.render(c))
 
         try:
-            recipient_list = Subscribe.objects.filter(activity=True, site=settings.SITE_ID).values_list('email', flat=True).order_by('?')
+            # recipient_list = Subscribe.objects.filter(activity=True, site=settings.SITE_ID).values_list('email', flat=True).order_by('?')
+            recipient_list = Subscribe.objects.filter(activity=True).values_list('email', flat=True).order_by('?')
         except Subscribe.DoesNotExist:
             raise CommandError('%s Subscribes does not exist' % time_now)
 
@@ -83,6 +87,11 @@ class Command(BaseCommand):
                 yield msg
 
         connection = mail.get_connection(fail_silently=True)
-        connection.send_messages(gen_emails())
+
+        try:
+            connection.send_messages(gen_emails())
+        except SMTPException:
+            raise
+
         output.append('%s Successfully sends mails to subscribes\n' % time_now)
         return '\n'.join(output)
