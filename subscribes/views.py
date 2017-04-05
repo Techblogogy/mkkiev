@@ -26,7 +26,8 @@ from subscribes.models import Subscribe
 from subscribes.forms import SubscribeForm
 from articles.models import Article
 
-SITE_DOMAIN_NAME = 'http://mkkiev.in.ua'
+# SITE_DOMAIN_NAME = 'http://mkkiev.in.ua'
+SITE_DOMAIN_NAME = 'mkkiev.in.ua'
 
 
 class SubscribeView(TemplateView):
@@ -74,15 +75,19 @@ class SubscribeView(TemplateView):
             email = form.cleaned_data['email']
             domain = add_domain(SITE_DOMAIN_NAME, '', request.is_secure())
             token = urlsafe_base64_encode(self.make_token(settings.SECRET_KEY, email))
+
             pretty_domain = domain.replace('http://', '').replace('https://', '').replace('//', '')
             from_email_name = getattr(settings, 'SUBSCRIBES_FROM_EMAIL_NAME', 'no-reply')
-            # from_email = '%s@%s' % (from_email_name, pretty_domain)
-            # print from_email
-            from_email = "fedorbobylev@fabricator.me"
+            from_email = '%s@%s' % (from_email_name, pretty_domain)
+
             subject = _('Подтверждение подписки для %s' % pretty_domain)
             url = '%s%s?t=%s&e=%s' % (domain, reverse('subscribes-index'), token, email)
+
+            print email, domain, pretty_domain, url, from_email_name, from_email
+
             text_message = '%s:\n\n%s\n\n--\n%s' % (_('Скопируйте ссылку в браузер.'), url, domain)
             html_message = '<a href="%s">%s</a><br><br>---<br>%s' % (url, _('Подписаться на рассылку.'), domain)
+
             connection = mail.get_connection()
             connection.open()
             msg = mail.EmailMultiAlternatives(subject, text_message, from_email, [email])
