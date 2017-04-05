@@ -191,18 +191,19 @@ INSTALLED_APPS = (
     'pages',
 )
 
-EMAIL_HOST = 'mk.kiev.ua'
-EMAIL_HOST_USER = 'test@mk.kiev.ua'
+EMAIL_HOST = 'smtp.zoho.eu'
+EMAIL_HOST_USER = 'no-reply@mkkiev.in.ua'
 # EMAIL_PORT = 25
 EMAIL_SUBJECT_PREFIX = '[mkkiev.ua] '
 EMAIL_PORT = 587
+# EMAIL_PORT = 465
 EMAIL_HOST_PASSWORD = ''
 EMAIL_USE_TLS = 1
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
 # EMAIL_FILE_PATH = rel('log')
 
-SUBSCRIBES_FROM_EMAIL_NAME="fedorbobylev"
+SUBSCRIBES_FROM_EMAIL_NAME="no-reply"
 
 AUTH_USER_MODEL = 'registration.User'
 
