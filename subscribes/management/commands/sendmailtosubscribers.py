@@ -43,12 +43,15 @@ class Command(BaseCommand):
 
         # current_site = Site.objects.get_current()
         # domain = add_domain(current_site.domain, '', False)
-        domain = "http://127.0.0.1:8000/"
+        domain = "http://mkkiev.in.ua/"
         pretty_domain = domain.replace('http://', '').replace('https://', '').replace('//', '').replace('www', '')
         #
         from_email = '%s <%s@%s>' % (pretty_from_email_name, from_email_name, pretty_domain)
         # print from_email
-        from_email = "fedorbobylev@fabricator.me"
+        # from_email = "fedorbobylev@fabricator.me"
+        from_email = "no-reply@mkkiev.in.ua"
+
+        print from_email
 
         c = Context({
             'article_list': articles,
