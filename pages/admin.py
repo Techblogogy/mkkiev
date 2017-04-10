@@ -26,5 +26,7 @@ class PageAdmin(admin.ModelAdmin):
         super(PageAdmin, self).save_model(request, obj, form, change)
         obj.content = obj.content.replace('<hr>', '<!--more-->').strip()
 
-    class Media:
-        js = ('/static/js/vendor/ckeditor/ckeditor.js', '/static/js/admin/ckeditor.js')
+        print form
+
+    # class Media:
+    #     js = ('/static/js/vendor/ckeditor/ckeditor.js', '/static/js/admin/ckeditor.js')

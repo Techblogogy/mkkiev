@@ -68,6 +68,7 @@ class DayArchiveView(generic.DayArchiveView, BaseListView):
     template_name = 'articles/list.html'
     date_field = 'slug_date'
     month_format = '%m'
+    allow_future = True
 
 
 class WeekArchiveView(generic.WeekArchiveView, BaseListView):
@@ -82,12 +83,15 @@ class MonthArchiveView(generic.MonthArchiveView, BaseListView):
     template_name = 'articles/list.html'
     date_field = 'pub_date'
     month_format = '%m'
+    allow_future = True
 
 
 class YearArchiveView(generic.YearArchiveView, BaseListView):
     template_name = 'articles/list.html'
     date_field = 'pub_date'
+    # date_field = 'slug_date'
     make_object_list = True
+    allow_future = True
 
 
 class ListView(BaseListView, generic.ListView):

@@ -43,6 +43,7 @@ def page(request, url):
             return HttpResponsePermanentRedirect('%s/' % request.path)
         else:
             raise
+
     return render_page(request, f)
 
 
@@ -61,6 +62,8 @@ def render_page(request, f):
     else:
         t = loader.get_template(DEFAULT_TEMPLATE)
 
+    # print Page.objects.all().values()
+
     # To avoid having to always use the "|safe" filter in flatpage templates,
     # mark the title and content as already safe (since they are raw HTML
     # content in the first place).
@@ -69,4 +72,6 @@ def render_page(request, f):
 
     c = RequestContext(request, {'flatpage': f})
     response = HttpResponse(t.render(c))
+
+
     return response

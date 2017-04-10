@@ -1,5 +1,5 @@
 {% extends "layout.html" %}
-{% load common %}
+{% load common pages %}
 {% block title %}{% endblock %}
 {% block page %}
     <article class="detail_page">
@@ -10,6 +10,7 @@
         {% endblock %}
         {% block page_content %}
             <div class="detail_page-content">
+                {{ content }}
             </div>
         {% endblock %}
         {% block page_footer %}

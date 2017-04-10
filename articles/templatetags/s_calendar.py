@@ -18,8 +18,8 @@ from itertools import groupby
 class ArchiveCalendar(LocaleHTMLCalendar):
 
     def __init__(self, dates):
-        # super(ArchiveCalendar, self).__init__(locale="ru_RU.utf8")
-        super(ArchiveCalendar, self).__init__()
+        super(ArchiveCalendar, self).__init__(locale="ru_RU.utf8")
+        # super(ArchiveCalendar, self).__init__()
         self.dates = dates
 
     def formatday(self, day, weekday):
@@ -74,6 +74,7 @@ def display_calendar():
     # Get all unique dates from articles
     dates = Article.objects.values_list('slug_date', flat=True).order_by('slug_date').distinct()
     print dates
+    print Article.objects.values_list('pub_date', flat=True)
 
     d_min = min(dates)
     d_max = max(dates)

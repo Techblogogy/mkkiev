@@ -94,7 +94,7 @@ class SubscribeView(TemplateView):
             msg.attach_alternative(html_message, 'text/html')
             try:
                 msg.send()
-                messages.success(request, _('На ваш почтовый адрес выслано подтверждение подписки.<br>Проверьте ваш почтовый ящик'))
+                messages.success(request, _('На ваш почтовый адрес выслано подтверждение подписки.  Проверьте ваш почтовый ящик'))
             except SMTPException:
                 messages.error(request, _('Ошибка в отправке подтверждения подписки на ваш почтовый адрес'))
                 raise

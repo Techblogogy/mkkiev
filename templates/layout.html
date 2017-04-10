@@ -21,15 +21,19 @@
 {% block top_menu %}{% show_top_menu %}{% endblock %}
 
 {# sidebar #}
-{% block sidebar %}{% include "includes/sidebar.html" %}{% endblock %}
+
+{% block sidebar %}
+
+{% include "includes/sidebar.html" %}
+{% endblock %}
 
 {# footer #}
 {% block footer_menu %}{% include "includes/footer_menu.html" %}{% endblock %}
 {% block footer_counters %}{% include "includes/counters.html" with icons=1 %}{% endblock %}
 {% block footer_copyright %}
     <small>
-        Copyright {% show_now "Y" %} © {% siteurl %}<br>
-        Все права защищены. При использовании и цитировании материалов активная ссылка на сайт {% siteurl %} обязательна!
+        Copyright {% show_now "Y" %} © <a href="http://mk.kiev.ua/">mk.kiev.ua</a> {#% siteurl %#}<br>
+        Все права защищены. При использовании и цитировании материалов активная ссылка на сайт <a href="http://mk.kiev.ua/">mk.kiev.ua</a> {#% siteurl %#} обязательна!
     </small>
 {% endblock %}
 
@@ -41,4 +45,3 @@
     {% show_banner_swfobject %}
     {% include "includes/counters.html" %}
 {% endblock %}
-
