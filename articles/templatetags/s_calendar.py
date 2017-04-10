@@ -73,15 +73,20 @@ def display_calendar():
 
     # Get all unique dates from articles
     dates = Article.objects.values_list('slug_date', flat=True).order_by('slug_date').distinct()
+    print dates
 
     d_min = min(dates)
     d_max = max(dates)
     today = datetime.date.today()
 
+    print d_min, d_max
+
     cals = []
+        
 
     today_t = False
-    while d_min.month <= d_max.month:
+    while d_min.month <= d_max.month and d_min.year <= d_max.year:
+    # while d_min <= add_months(d_max, 1):
         # print d_min.year, d_min.month
 
         cal = ArchiveCalendar(dates).formatmonth(d_min.year, d_min.month)
@@ -94,6 +99,9 @@ def display_calendar():
         # cals.append(mark_safe(cal))
 
         d_min = add_months(d_min, 1)
+
+        print d_min
+
 
     if not today_t:
         cals[len(cals)-1]['display'] = "block"
