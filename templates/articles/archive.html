@@ -1,5 +1,5 @@
 {% extends "articles/list.html" %}
-{% load common i18n %}
+{% load common i18n s_calendar %}
 {% block title %}{% title %}{% trans "Архив" %}{% endtitle %}{% endblock %}
 {% block page_header %}
     <h1 class="list_page_header">
@@ -7,7 +7,9 @@
     </h1>
 {% endblock %}
 {% block page_content %}
-    <div class="detail_page-content">
+
+    {% display_calendar %}
+    <!-- <div class="detail_page-content">
     <style>
         .archive {
             width: 100%;
@@ -100,5 +102,5 @@
                 </tr>
             {% endfor %}
         </table>
-    </div>
+    </div> -->
 {% endblock %}

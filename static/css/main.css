@@ -38,7 +38,7 @@ blockquote:before{content:&xE2809D;font-size:95px;line-height:40px;height:30px;o
 .header_logo{width:400px;}
 .header_logo-left{float:left;width:250px;}
 .header_logo-right{margin-left:250px;}
-.header_logo-image{height:85px;width:250px;background:url("/static/images/LogoMK.jpg") no-repeat;margin:0;background-color:transparent;border:0;overflow:hidden;}
+.header_logo-image{height:85px;width:250px;background:url("/static/images/LogoMK.png") no-repeat;margin:0;background-color:transparent;border:0;overflow:hidden;}
 .header_logo-image:before{content:"";display:block;width:0;height:100%;}
 .main_content{margin-bottom:20px;background:url("/static/images/sidebar_bg.png") top right repeat-y;}
 .main_content:before{content:" ";display:table;}
