@@ -12,7 +12,6 @@ from pages.forms import PageForm
 
 class PageAdmin(admin.ModelAdmin):
     form = PageForm
-    formfield_overrides = {models.TextField: {'widget': PageDown}}
     fieldsets = (
         (None, {'fields': ('url', 'title', 'content')}),
         (_('Meta'), {'fields': ('keywords', 'description')}),
@@ -22,11 +21,14 @@ class PageAdmin(admin.ModelAdmin):
     list_filter = ('enable_comments', 'registration_required')
     search_fields = ('url', 'title')
 
+    formfield_overrides = {models.TextField: {'widget': PageDown}}
+
+
     def save_model(self, request, obj, form, change):
+        print obj
         super(PageAdmin, self).save_model(request, obj, form, change)
         obj.content = obj.content.replace('<hr>', '<!--more-->').strip()
 
-        print form
 
     # class Media:
     #     js = ('/static/js/vendor/ckeditor/ckeditor.js', '/static/js/admin/ckeditor.js')

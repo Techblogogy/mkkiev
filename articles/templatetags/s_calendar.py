@@ -18,8 +18,8 @@ from itertools import groupby
 class ArchiveCalendar(LocaleHTMLCalendar):
 
     def __init__(self, dates):
-        super(ArchiveCalendar, self).__init__(locale="ru_RU.utf8")
-        # super(ArchiveCalendar, self).__init__()
+        # super(ArchiveCalendar, self).__init__(locale="ru_RU.utf8")
+        super(ArchiveCalendar, self).__init__()
         self.dates = dates
 
     def formatday(self, day, weekday):
