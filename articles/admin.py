@@ -11,6 +11,9 @@ from django.utils.translation import ugettext_lazy as _
 
 from articles.filters import PublisherListFilter, TagListFilter, CategoryListFilter, FreeListFilter, CustomTagFilter
 from pagedown.widgets import PageDown
+
+# from pagedown.widgets import AdminPagedownWidget
+# from pagedown.widgets import PageDownAdmin
 from registration.models import User
 
 
@@ -50,6 +53,7 @@ class BaseArticleAdmin(admin.ModelAdmin):
     )
     actions = [free_lock, make_active, make_nonactive]
     formfield_overrides = {models.TextField: {'widget': PageDown}}
+    # formfield_overrides = {models.TextField: {'widget': AdminPagedownWidget}}
 
     def save_model(self, request, obj, form, change):
         obj.content = obj.content.replace('<hr>', '<!--more-->').strip()
