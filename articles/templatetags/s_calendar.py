@@ -82,11 +82,10 @@ def display_calendar():
     print d_min, d_max
 
     cals = []
-        
 
     today_t = False
-    while d_min.month <= d_max.month and d_min.year <= d_max.year:
-    # while d_min <= add_months(d_max, 1):
+    # while d_min.month <= d_max.month and d_min.year <= d_max.year:
+    while d_min <= add_months(d_max, 1):
         # print d_min.year, d_min.month
 
         cal = ArchiveCalendar(dates).formatmonth(d_min.year, d_min.month)
