@@ -28,6 +28,7 @@ def reorder(base_apps):
         ('partners', []),
         ('banners', []),
         ('annons', []),
+        ('mklogo', []),
         ('registration', [
             'registration_user',
             'auth_group',

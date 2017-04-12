@@ -189,6 +189,7 @@ INSTALLED_APPS = (
     'menu',
     'polls',
     'pages',
+    'mklogo',
 )
 
 EMAIL_HOST = 'smtp.zoho.eu'
