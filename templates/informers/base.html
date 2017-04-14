@@ -1,4 +1,4 @@
-{% load image static %}{% spaceless %}
+{% load image static logo_block %}{% spaceless %}
 {% block style %}
     <style></style>
 {% endblock %}
@@ -6,7 +6,7 @@
     {% block header %}
         <div class="informer{{v}}-header">
             <a href="{{ url }}" title="{{ title }}">
-                <img class="informer{{v}}-logo" border="0" alt="{{ title }}" src="{% static logo_path %}">
+                <img class="informer{{v}}-logo" border="0" alt="{{ title }}" src="{{ logo_path }}">
             </a>
         </div>
     {% endblock %}

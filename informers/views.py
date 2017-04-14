@@ -7,6 +7,8 @@ from django.conf import settings
 
 from articles.models import Article
 
+from mklogo.models import Logo
+
 
 class InformerResponseMixin(TemplateResponseMixin):
     template_name = 'informers/default.html'
@@ -19,6 +21,7 @@ class InformerResponseMixin(TemplateResponseMixin):
         return template_names
 
     def render_to_response(self, context, **response_kwargs):
+        print "THIS PRINTS Logo"
         response_kwargs['content_type'] = 'text/javascript'
         t = self.response_class(
             self.request,
@@ -43,14 +46,21 @@ class InformerView(InformerResponseMixin, BaseListView):
         return Article.objects.filter(activity=True)[:count]
 
     def get_context_data(self, **kwargs):
+
+        res = Logo.objects.get(slug="side_logo")
+        print res.image.url
+
         context = super(InformerView, self).get_context_data(**kwargs)
         context['title'] = getattr(settings, 'INFORMER_TITLE', '')
         context['url'] = getattr(settings, 'INFORMER_URL', '')
-        context['logo_path'] = getattr(settings, 'INFORMER_LOGO_PATH', '')
+        context['logo_path'] = res.image.url #getattr(settings, 'INFORMER_LOGO_PATH', '')
         context['help_path'] = getattr(settings, 'INFORMER_HELP_PATH', '')
         context['footer_title'] = getattr(settings, 'INFORMER_FOOTER_TITLE', '')
         try:
             context['v'] = int(self.request.GET.get('v', ''))
         except ValueError:
             pass
+
+        print context
+
         return context
